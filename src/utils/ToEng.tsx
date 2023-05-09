@@ -24,7 +24,7 @@ export function ToEngPackaging(str : string) : string {
     if (typeof(str) === "undefined")
         return "";
     if (str.includes('cành')) {
-        str = str.replaceAll('cành', 'stems')
+        str = str.replaceAll('cành', 'stem')
     }
     if (str.includes('bó')) {
         str = str.replaceAll('bó', 'bunch')

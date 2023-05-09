@@ -227,11 +227,11 @@ function MyPage({itemDetails, index, date, totalPage}: {itemDetails: IItemDetail
             <Text style={{fontWeight: 'bold'}}>NHA BAN HOA LTD VIETNAM</Text>
             <Text>Address : 45 – No.29 Street, An Khanh Ward, District 2, Ho Chi Minh City , Vietnam</Text>
             <Text>Hotline for ordering: (028) 7300 7299 - 0935 17 77 01 - 079 529 7799</Text>
-            <Text>Hotline delivery: 078 229 7799</Text>
+            <Text>Hotline for handling: 078 229 7799</Text>
             <Text>Email : sales1@nhabanhoa.com</Text>
           </View>
         </View>
-        <Text style={styles.date}>{`AVAILABLE LIST ON ${date}`}</Text>
+        <Text style={styles.date}>{`FLOWERS AVAILABILITY ON ${date}`}</Text>
       </View>
       <View style={styles.pageContent}>
         {
