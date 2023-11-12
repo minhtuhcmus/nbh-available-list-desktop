@@ -58,6 +58,27 @@ function App() {
   const [imageMap, setImageMap] = useState<Map<string, string>>();
   const [imageDeliveryChargeVie, setImageDeliveryChargeVie] = useState('');
   const [imageDeliveryChargeEng, setImageDeliveryChargeEng] = useState('');
+  const [canGenDoc, setCanGenDoc] = useState(false);
+  const [isGenActive, setIsGenActive] = useState(false);
+  useEffect(()=>{
+    if (typeof(imageMap) !== 'undefined' && 
+    imageMap.size > 0 && 
+    date !== '' && 
+    itemDetails.length > 0) {
+      setIsGenActive(true);
+    }
+  }, [imageMap])
+
+  // useEffect(() => {
+  //   try {
+  //     const imgDelCharVie = require('./assets/delivery-charge/vie.png');
+  //     const imgDelCharEng = require('./assets/delivery-charge/eng.png');
+  //     setImageDeliveryChargeVie(imgDelCharVie);
+  //     setImageDeliveryChargeEng(imgDelCharEng)
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }, [])
 
   // const [instanceVie, updateInstanceVie] = usePDF({ document: <MyDoc itemDetails={itemDetails} date={date}/>});
   // const [instanceEng, updateInstanceEng] = usePDF({ document: <MyDocEng itemDetails={itemDetails} date={date}/>});
@@ -129,7 +150,7 @@ function App() {
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const json:IItemDetail[] = XLSX.utils.sheet_to_json(worksheet);
-        // console.log(json);
+        console.log(json);
         setItemDetails(json);
       };
       reader.readAsArrayBuffer(e.target.files[0]);
@@ -201,8 +222,10 @@ function App() {
             }
             setImageMap(imagesMapTemp);
           }}/>
-
         </div>
+        <button style={{marginTop: '12px'}} disabled={!isGenActive} onClick={() => {
+
+          setCanGenDoc(true)}}>Gen Doc</button>
       </div>
       {/* {!prepareEng ? <button onClick={() => setPrepareEng(true)}>Soạn EngVer</button> : <PDFDownloadLink document={<MyDocEng itemDetails={itemDetails} date={date}/>} fileName="EngVer.pdf">
       {({ blob, url, loading, error }) =>
@@ -232,7 +255,7 @@ function App() {
               }
             }}/>
           </div>
-        <PDFViewer width={'95%'} height={800}><MyDocEng itemDetails={itemDetails} date={date} imageDeliveryCharge={imageDeliveryChargeEng}/></PDFViewer>
+          {canGenDoc && <PDFViewer width={'95%'} height={800}><MyDocEng itemDetails={itemDetails} date={date} imageDeliveryCharge={imageDeliveryChargeEng}/></PDFViewer>}
       </div>
       
 
@@ -253,7 +276,7 @@ function App() {
           }}/>
         </div>
         
-        <PDFViewer width={'90%'} height={800}><MyDocP itemDetails={itemDetails} date={date} imageDeliveryCharge={imageDeliveryChargeVie}/></PDFViewer>
+        {canGenDoc && <PDFViewer width={'90%'} height={800}><MyDocP itemDetails={itemDetails} date={date} imageDeliveryCharge={imageDeliveryChargeVie}/></PDFViewer>}
       </div>
     </div>
     

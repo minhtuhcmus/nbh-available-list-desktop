@@ -2,7 +2,10 @@ import {Document, Page, StyleSheet, View, Text, Image, Font } from "@react-pdf/r
 import {IItemDetail} from "../../interface/item/item";
 import logo_img from "../../assets/logo.png";
 import { ToEngOrigin, ToEngPackaging } from "../../utils/ToEng";
+import { ReactNode } from "react";
+import { getFlags } from "../../utils/GetFlag";
 // import { countries, flags } from "../../const/flag";
+import watermark from "../../assets/logo_grayscale.png";
 
 Font.register({
   family: "Roboto",
@@ -53,10 +56,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   pageFooter: {
-    marginTop: '0.25cm',
     fontSize: 10
   },
   card: {
+    position: 'relative',
     width: '10cm',
     height: '6cm',
     flexDirection: 'column',
@@ -142,7 +145,6 @@ const styles = StyleSheet.create({
   },
   deliveryCharge: {
     width: '95%',
-    paddingTop: '12px'
   },
   deliveryChargeWrapper:{
     width: '100%',
@@ -151,6 +153,30 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'flex-start'
+  },
+  orgDetail: {
+    width: '60%',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  org: {
+    textAlign: 'left',
+    fontSize: 11,
+  },
+  flag: {
+    position: 'absolute',
+    right: '5px',
+    top: '5px',
+    border: '2px solid black',
+    width: '14px'
+  },
+  watermark: {
+    position: 'absolute',
+    top: '12px',
+    width: '100%',
+    opacity: 0.05
   }
 });
 
@@ -158,6 +184,7 @@ function ItemCard({itemDetail}: {itemDetail:IItemDetail}) {
   return (
     <View style={[styles.card, {opacity: itemDetail.name !== 'dump' ? 1 : 0}]}>
       <Text style={styles.name}>{itemDetail.engName?.toLocaleUpperCase("en")}</Text>
+      <Image style={styles.watermark} src={watermark}></Image>
       <View style={styles.imageAndInfo}>
         <View style={styles.image}>
           {itemDetail.images && <Image style={styles.img} src={itemDetail.images}></Image>}
@@ -175,7 +202,11 @@ function ItemCard({itemDetail}: {itemDetail:IItemDetail}) {
               <Text>Origin</Text>
               <Text>{`: `}</Text>
             </View>
-            {itemDetail.origin && <Text style={styles.detail}>{ToEngOrigin(itemDetail.origin)}</Text>}
+            <View style={[styles.orgDetail, {position: 'relative'}]}>
+              <Text style={styles.org}>{ToEngOrigin(itemDetail.origin)}</Text>
+              <Image style={styles.flag} src={getFlags(itemDetail.origin)}></Image>
+            </View>
+            {/* {itemDetail.origin && <Text style={styles.detail}>{ToEngOrigin(itemDetail.origin)}</Text>} */}
           </View>
           <View style={styles.infoDetail}>
             <View style={styles.title}>
@@ -206,9 +237,9 @@ function ItemCard({itemDetail}: {itemDetail:IItemDetail}) {
             {itemDetail.engNote && <Text style={[
               styles.detail, 
               {
-                color: itemDetail.engNote?.includes('BUY 1 GET 1') ? '#98300e' : 'black', 
-                backgroundColor: itemDetail.engNote?.includes('BUY 1 GET 1') ? '#F5e7a2' : 'white',
-                fontWeight: itemDetail.engNote?.includes('BUY 1 GET 1') ? 'bold' : 'normal'
+                color: itemDetail.highlight_note === 1 ? '#98300e' : 'black', 
+                backgroundColor: itemDetail.highlight_note === 1 ? '#FEFE00' : '',
+                fontWeight: itemDetail.highlight_note === 1 ? 'bold' : 'normal'
               }]}>{itemDetail.engNote}</Text>}
           </View>
         </View>
@@ -217,7 +248,36 @@ function ItemCard({itemDetail}: {itemDetail:IItemDetail}) {
   );
 }
 
-function MyPage({itemDetails, index, date, totalPage}: {itemDetails: IItemDetail[], index: number, date: string, totalPage: number}) {
+function MyPage({itemDetails, index, date, totalPage, imageDeliveryCharge}: {itemDetails: IItemDetail[], index: number, date: string, totalPage: number, imageDeliveryCharge: string}) {
+  function genPageContent() : ReactNode {
+    if (index === totalPage - 1 && itemDetails.length < 3) {
+      return (
+        <>
+          <View style={styles.pageContent}>
+            {
+              itemDetails.map((itemDetail: IItemDetail) => <ItemCard itemDetail={itemDetail} />)
+            }
+          </View>
+          <View style={styles.deliveryChargeWrapper}>
+            {imageDeliveryCharge && <Image style={styles.deliveryCharge} src={imageDeliveryCharge}></Image>}
+          </View>
+        </>
+      )
+    }
+    return (
+      <>
+        <View style={styles.pageContent}>
+          {
+            itemDetails.map((itemDetail: IItemDetail) => <ItemCard itemDetail={itemDetail} />)
+          }
+        </View>
+        <Text style={styles.pageFooter}>
+          {index+1}/{totalPage}
+        </Text>
+      </>
+    )
+  }
+
   return (
     <Page size="A4" orientation="portrait" style={styles.page}>
       <View style={styles.pageHeader}>
@@ -233,14 +293,9 @@ function MyPage({itemDetails, index, date, totalPage}: {itemDetails: IItemDetail
         </View>
         <Text style={styles.date}>{`FLOWERS AVAILABILITY ON ${date}`}</Text>
       </View>
-      <View style={styles.pageContent}>
-        {
-          itemDetails.map((itemDetail: IItemDetail) => <ItemCard itemDetail={itemDetail} />)
-        }
-      </View>
-      <Text style={styles.pageFooter}>
-        {index+1}/{totalPage}
-      </Text>
+      {
+        genPageContent()
+      }
     </Page>
   );
 }
@@ -260,33 +315,42 @@ const dumpItem:IItemDetail = {
   price: ""
 }
 
-function getPageContent(itemDetails: IItemDetail[], date: string) {
+function getPageContent(itemDetails: IItemDetail[], date: string, imageDeliveryCharge: string) {
   let pageNum = Math.ceil(itemDetails.length/perPage);
   let pagesData = new Array<IItemDetail[]>(pageNum);
   for (let i = 0; i < pageNum; i++) {
     pagesData[i] = itemDetails.slice(i*perPage, (i+1)*perPage)
-    if (pagesData[i].length < perPage) {
-      let needed = perPage - pagesData[i].length;
-      for (let j = 0; j < needed; j++){
-        pagesData[i].push(dumpItem)
-      }
+    if (i === pageNum - 1 && pagesData[i].length % 2 === 1) {
+      pagesData[i].push(dumpItem)
     }
     // console.log(i, pagesData)
   }
-  return pagesData.map((pageData, index) => <MyPage itemDetails={pageData} index={index} date={date} totalPage={pageNum}/>)
+  return pagesData.map((pageData, index) => <MyPage itemDetails={pageData} index={index} date={date} totalPage={pageNum} imageDeliveryCharge={imageDeliveryCharge}/>)
 }
 
 function MyDocEng ({itemDetails, date, imageDeliveryCharge}: {itemDetails: IItemDetail[], date: string, imageDeliveryCharge: string}) {
+  function genDeliveryCharge() : ReactNode {
+    console.log(itemDetails.length%perPage)
+    if (itemDetails.length % perPage > 2 || itemDetails.length % perPage === 0) {
+      return (
+        <Page size="A4" orientation="portrait" style={styles.page}>
+          <View style={styles.deliveryChargeWrapper}>
+            {imageDeliveryCharge && <Image style={styles.deliveryCharge} src={imageDeliveryCharge}></Image>}
+          </View>
+        </Page>
+      )
+    } else {
+      return null
+    }
+  }
   return (
     <Document>
       {
-        getPageContent(itemDetails, date)
+        getPageContent(itemDetails, date, imageDeliveryCharge)
       }
-      <Page size="A4" orientation="portrait" style={styles.page}>
-        <View style={styles.deliveryChargeWrapper}>
-          {imageDeliveryCharge && <Image style={styles.deliveryCharge} src={imageDeliveryCharge}></Image>}
-        </View>
-      </Page>
+      {
+        genDeliveryCharge()
+      }
     </Document>
   )
 }

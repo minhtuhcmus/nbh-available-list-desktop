@@ -11,4 +11,5 @@ export interface IItemDetail {
   note: string;
   engName?: string;
   engNote?: string;
+  highlight_note?: number;
 }

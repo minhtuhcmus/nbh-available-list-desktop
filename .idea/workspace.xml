@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="480b8698-97eb-47f6-8036-d98e90d84d5e" name="Changes" comment="" />
+    <list default="true" id="480b8698-97eb-47f6-8036-d98e90d84d5e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/flags/za.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/nbh-available-list-desktop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nbh-available-list-desktop.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/item-doc/ItemDocP.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/item-doc/ItemDocP.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/item-doc/ItemEngDoc.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/item-doc/ItemEngDoc.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interface/item/item.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/interface/item/item.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/ToEng.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ToEng.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +23,9 @@
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../../Program Files/Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2PY1E4SfPVBrj7LAAkYzQDLDLaC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -36,9 +49,15 @@
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\minht\\Projects\\Electron\\nbh-available-list-desktop\\node_modules\\typescript\\lib&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\minht\Projects\Electron\nbh-available-list-desktop\src\assets\flags" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="nbh-available-list-desktop" />
@@ -76,6 +95,17 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
