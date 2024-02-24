@@ -140,3 +140,19 @@
 .inactive-tab{
   width: 100px;
 }
+
+.pdf-content-export {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.doc-ver-export {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}

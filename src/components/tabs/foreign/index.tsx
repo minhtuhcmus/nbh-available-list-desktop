@@ -7,6 +7,16 @@ import { PDFViewer } from '@react-pdf/renderer';
 import ItemForeignDoc from '../../item-doc/ItemForeignDoc';
 import * as lodash from "lodash";
 
+const dumpItem:IItemExport = {
+	name: 'dump',
+	length: '',
+	weightPerUnit: '',
+	pricingUnit: '',
+	price: '',
+	unitPerBox: '',
+	weightPerBox: ''
+}
+
 function ForeignForm() {
 	const [itemDetails, setItemDetails] = useState<IItemExport[][]>([]);
 	const [customerInfos, setCustomerInfos] = useState<ICustomerInfo[]>([]);
@@ -47,15 +57,21 @@ function ForeignForm() {
 					console.log(info);
 
 					let customerInfoTemp: ICustomerInfo = {
-						customer: info[0],
-						currency: info[1],
-						freight: info[2],
-						date: info[3]
+						customer: info[0][0],
+						currency: info[1][0],
+						freight: info[2][0],
+						date: info[3][0]
 					}
 
 					var infoRange = XLSX.utils.encode_range({ s: { c: 0, r: 5 }, e: { c: 10, r: 200 } })
 					let sheetCont: IItemExport[] = XLSX.utils.sheet_to_json(worksheet, {range: infoRange, blankrows: false});
 					console.log(sheetCont);
+					if (sheetCont.length % 8 != 0) {
+						let need = 8 - sheetCont.length % 8;
+						for (let i = 0; i < need; i++) {
+							sheetCont.push(dumpItem);
+						}
+					}
 					let itemDetailsTemp = itemDetails;
 					let customerInfosTemp = customerInfos;
 					itemDetailsTemp[i] = sheetCont;
@@ -118,9 +134,9 @@ function ForeignForm() {
 				}}>Gen Doc</button>
 			</div>
 
-			<div className='pdf-content'>
+			<div className='pdf-content-export'>
 				{
-					itemDetails.map((itemDetail, index) => <div className='doc-ver'>
+					itemDetails.map((itemDetail, index) => <div className='doc-ver-export'>
 					{canGenDoc && <PDFViewer width={'95%'} height={800}><ItemForeignDoc itemDetails={itemDetail} customerInfo={customerInfos[index]}/></PDFViewer>}
 				</div>)
 				}

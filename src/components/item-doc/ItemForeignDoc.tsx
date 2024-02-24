@@ -2,10 +2,11 @@ import {Document, Page, StyleSheet, View, Text, Image, Font } from "@react-pdf/r
 import {ICustomerInfo, IItemExport} from "../../interface/item/item";
 import logo_img from "../../assets/logo.png";
 import { ToEngOrigin, ToEngPackaging } from "../../utils/ToEng";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { getFlags } from "../../utils/GetFlag";
 // import { countries, flags } from "../../const/flag";
 import watermark from "../../assets/logo_grayscale.png";
+import getSymbolFromCurrency from 'currency-symbol-map';
 
 Font.register({
   family: "Roboto",
@@ -191,7 +192,7 @@ const styles = StyleSheet.create({
   }
 });
 
-function ItemCard({itemDetail}: {itemDetail:IItemExport}) {
+function ItemCard({itemDetail, currency}: {itemDetail:IItemExport, currency:string}) {
   return (
     <View style={[styles.card, {opacity: itemDetail.name !== 'dump' ? 1 : 0}]}>
       <Text style={styles.name}>{itemDetail.name?.toLocaleUpperCase("en")}</Text>
@@ -206,7 +207,7 @@ function ItemCard({itemDetail}: {itemDetail:IItemExport}) {
               <Text>Price</Text>
               <Text>{`: `}</Text>
             </View>
-            <Text style={styles.detail}>{itemDetail.price}</Text>
+            <Text style={styles.detail}>{getSymbolFromCurrency(currency)} {itemDetail.price}</Text>
           </View>
           <View style={styles.infoDetail}>
             <View style={styles.title}>
@@ -256,7 +257,7 @@ function MyPage({itemDetails, index, totalPage, customerInfo}: {itemDetails: IIt
         <>
           <View style={styles.pageContent}>
             {
-              itemDetails.map((itemDetail: IItemExport) => <ItemCard itemDetail={itemDetail} />)
+              itemDetails.map((itemDetail: IItemExport) => <ItemCard itemDetail={itemDetail} currency={customerInfo.currency}/>)
             }
           </View>
         </>
@@ -266,7 +267,7 @@ function MyPage({itemDetails, index, totalPage, customerInfo}: {itemDetails: IIt
       <>
         <View style={styles.pageContent}>
           {
-            itemDetails.map((itemDetail: IItemExport) => <ItemCard itemDetail={itemDetail} />)
+            itemDetails.map((itemDetail: IItemExport) => <ItemCard itemDetail={itemDetail} currency={customerInfo.currency}/>)
           }
         </View>
         <Text style={styles.pageFooter}>
