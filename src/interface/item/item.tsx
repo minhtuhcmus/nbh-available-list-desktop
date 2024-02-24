@@ -13,3 +13,21 @@ export interface IItemDetail {
   engNote?: string;
   highlight_note?: number;
 }
+
+export interface IItemExport {
+  name: string;
+  length: string;
+  weightPerUnit: string;
+  pricingUnit: string;
+  price: string;
+  unitPerBox: string;
+  weightPerBox: string;
+  images?: string;
+}
+
+export interface ICustomerInfo {
+  customer: string;
+  currency: string;
+  freight: string;
+  date: string;
+}
