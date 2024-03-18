@@ -5,7 +5,7 @@ import {IItemDetail} from "../../interface/item/item";
 
 function ItemCard({itemDetail}: { itemDetail: IItemDetail }) {
   return (
-    <div className={`item-card-wrapper ${itemDetail.name === 'dump' ? 'hide' : ''}`}>
+    <div className={`item-card-wrapper ${itemDetail.name === 'dump' || itemDetail.images === '' ? 'hide' : ''}`}>
       <div className="item-name">
         {itemDetail.name?.toLocaleUpperCase("vn")}
       </div>

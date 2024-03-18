@@ -20,14 +20,7 @@ const dumpItem:IItemExport = {
 function ForeignForm() {
 	const [itemDetails, setItemDetails] = useState<IItemExport[][]>([]);
 	const [customerInfos, setCustomerInfos] = useState<ICustomerInfo[]>([]);
-	const [imageFolder, setImageFolder] = useState<null | string>(null);
-
-	const [prepareVie, setPrepareVie] = useState(false);
-	const [prepareEng, setPrepareEng] = useState(false);
-
 	const [imageMap, setImageMap] = useState<Map<string, string>>();
-	const [imageDeliveryChargeVie, setImageDeliveryChargeVie] = useState('');
-	const [imageDeliveryChargeEng, setImageDeliveryChargeEng] = useState('');
 	const [canGenDoc, setCanGenDoc] = useState(false);
 	const [isGenActive, setIsGenActive] = useState(false);
 	useEffect(() => {

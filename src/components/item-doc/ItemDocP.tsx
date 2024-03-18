@@ -203,10 +203,10 @@ function ItemCard({itemDetail}: {itemDetail:IItemDetail}) {
               <Text>Xuất xứ</Text>
               <Text>{`: `}</Text>
             </View>
-            <View style={[styles.orgDetail, {position: 'relative'}]}>
+            {itemDetail.origin && <View style={[styles.orgDetail, {position: 'relative'}]}>
               <Text style={styles.org}>{itemDetail.origin}</Text>
               <Image style={styles.flag} src={getFlags(itemDetail.origin)}></Image>
-            </View>            
+            </View>}            
           </View>
           <View style={styles.infoDetail}>
             <View style={styles.title}>
@@ -317,6 +317,7 @@ const dumpItem:IItemDetail = {
 }
 
 function getPageContent(itemDetails: IItemDetail[], date: string, imageDeliveryCharge: string) {
+  console.log(itemDetails);
   let pageNum = Math.ceil(itemDetails.length/perPage);
   let pagesData = new Array<IItemDetail[]>(pageNum);
   for (let i = 0; i < pageNum; i++) {
