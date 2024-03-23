@@ -50,8 +50,8 @@ function DomesticForm() {
 	const [prepareEng, setPrepareEng] = useState(false);
 
 	const [imageMap, setImageMap] = useState<Map<string, string>>();
-	const [imageDeliveryChargeVie, setImageDeliveryChargeVie] = useState('');
-	const [imageDeliveryChargeEng, setImageDeliveryChargeEng] = useState('');
+	// const [imageDeliveryChargeVie, setImageDeliveryChargeVie] = useState('');
+	// const [imageDeliveryChargeEng, setImageDeliveryChargeEng] = useState('');
 	const [canGenDoc, setCanGenDoc] = useState(false);
 	const [isGenActive, setIsGenActive] = useState(false);
 	useEffect(() => {
@@ -116,7 +116,7 @@ function DomesticForm() {
 	}, [imageMap])
 
 	return (
-		<>
+		<div className='dosmetic-wrapper'>
 			<div className="handler">
 				<div className="file-upload">
 					Chọn file {" "}
@@ -157,7 +157,7 @@ function DomesticForm() {
 			<div className='pdf-content'>
 				<div className='doc-ver'>
 					<div className='ver-name'>English Version</div>
-					<div className='delivery-charge'>
+					{/* <div className='delivery-charge'>
 						Hình ảnh phí vận chuyển(Tiếng Anh)
 						<input type='file' onChange={e => {
 							let files = e.target.files;
@@ -165,14 +165,14 @@ function DomesticForm() {
 								setImageDeliveryChargeEng(URL.createObjectURL(files[0]))
 							}
 						}} />
-					</div>
-					{canGenDoc && <PDFViewer width={'95%'} height={800}><MyDocEng itemDetails={itemDetails} date={date} imageDeliveryCharge={imageDeliveryChargeEng} /></PDFViewer>}
+					</div> */}
+					{canGenDoc && <PDFViewer width={'95%'} height={800}><MyDocEng itemDetails={itemDetails} date={date}/></PDFViewer>}
 				</div>
 
 
 				<div className='doc-ver'>
 					<div className='ver-name'>Bản Tiếng Việt</div>
-					<div className='delivery-charge'>
+					{/* <div className='delivery-charge'>
 						Hình ảnh phí vận chuyển(Tiếng Việt)
 						<input type='file' onChange={e => {
 							let files = e.target.files;
@@ -180,11 +180,12 @@ function DomesticForm() {
 								setImageDeliveryChargeVie(URL.createObjectURL(files[0]))
 							}
 						}} />
-					</div>
+					</div> */}
 
-					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDocP itemDetails={itemDetails} date={date} imageDeliveryCharge={imageDeliveryChargeVie} /></PDFViewer>}
+					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDocP itemDetails={itemDetails} date={date}/></PDFViewer>}
 				</div>
-			</div></>
+			</div>
+		</div>
 	)
 }
 

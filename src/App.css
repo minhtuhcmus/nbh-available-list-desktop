@@ -156,3 +156,9 @@
   justify-content: center;
   width: 100%;
 }
+
+.dosmetic-wrapper {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+}

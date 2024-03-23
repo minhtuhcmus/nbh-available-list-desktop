@@ -56,7 +56,7 @@ function ForeignForm() {
 						date: info[3][0]
 					}
 
-					var infoRange = XLSX.utils.encode_range({ s: { c: 0, r: 5 }, e: { c: 10, r: 200 } })
+					var infoRange = XLSX.utils.encode_range({ s: { c: 1, r: 5 }, e: { c: 11, r: 200 } })
 					let sheetCont: IItemExport[] = XLSX.utils.sheet_to_json(worksheet, {range: infoRange, blankrows: false});
 					console.log(sheetCont);
 					if (sheetCont.length % 8 != 0) {
