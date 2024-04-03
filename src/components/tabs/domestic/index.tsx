@@ -54,6 +54,7 @@ function DomesticForm() {
 	// const [imageDeliveryChargeEng, setImageDeliveryChargeEng] = useState('');
 	const [canGenDoc, setCanGenDoc] = useState(false);
 	const [isGenActive, setIsGenActive] = useState(false);
+	const [needDeliveryCharge, setNeedDeliveryCharge] = useState(true);
 	useEffect(() => {
 		if (typeof (imageMap) !== 'undefined' &&
 			imageMap.size > 0 &&
@@ -166,23 +167,30 @@ function DomesticForm() {
 							}
 						}} />
 					</div> */}
-					{canGenDoc && <PDFViewer width={'95%'} height={800}><MyDocEng itemDetails={itemDetails} date={date}/></PDFViewer>}
+					{canGenDoc && <PDFViewer width={'95%'} height={800}><MyDocEng itemDetails={itemDetails} date={date} /></PDFViewer>}
 				</div>
 
 
 				<div className='doc-ver'>
 					<div className='ver-name'>Bản Tiếng Việt</div>
-					{/* <div className='delivery-charge'>
-						Hình ảnh phí vận chuyển(Tiếng Việt)
-						<input type='file' onChange={e => {
+					<div className='delivery-charge'>
+						Phí vận chuyển(Tiếng Việt)
+						{/* <input type='file' onChange={e => {
 							let files = e.target.files;
 							if (files != null) {
 								setImageDeliveryChargeVie(URL.createObjectURL(files[0]))
 							}
-						}} />
-					</div> */}
+						}} /> */}
+						<input
+							type='checkbox'
+							checked={needDeliveryCharge}
+							onChange={()=> {
+								setNeedDeliveryCharge(!needDeliveryCharge)
+							}}
+						/>
+					</div>
 
-					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDocP itemDetails={itemDetails} date={date}/></PDFViewer>}
+					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDocP itemDetails={itemDetails} date={date} needDeliveryCharge={needDeliveryCharge} /></PDFViewer>}
 				</div>
 			</div>
 		</div>

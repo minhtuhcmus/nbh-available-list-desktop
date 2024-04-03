@@ -154,15 +154,23 @@ const styles = StyleSheet.create({
     marginLeft: '2cm'
   },
   deliveryCharge: {
-    width: '95%',
+    width: '90%',
   },
   deliveryChargeWrapper: {
+    width: '95%',
+    height: '380px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  deliveryChargeTable: {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    border: '1px black solid',
+    border: '1px black solid'
   },
   orgDetail: {
     width: '60%',
@@ -195,35 +203,47 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start'
   },
+  complaintRegulationsBottom: {
+    width: '100%',
+    height: '90%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-start'
+  },
   textComplaint: {
     width: '100%',
     fontWeight: 'black',
-    fontSize: '20px',
     marginTop: '4px',
     marginBottom: '4px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'
   },
+  mediumText: {
+    fontSize: '12px'
+  },
   complaintContent: {
     width: '90%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    marginBottom: '14px'
   },
   textTitle: {
     textDecoration: 'underline',
-    width: '80%',
+    width: '100%',
     fontWeight: 'black',
-    fontSize: '18px'
+    fontSize: '12px',
+    marginBottom: '10px'
   },
   images1: {
     width: '90%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
   },
   images2: {
     width: '90%',
@@ -236,14 +256,21 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: '12px'
+  },
+  imageRowGroup: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between'
   },
   imageRow2: {
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    border: '1px black solid'
   },
   imageCol: {
     width: '49%',
@@ -251,7 +278,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    border: '1px black solid'
   },
   image1: {
     width: '180px',
@@ -264,69 +290,117 @@ const styles = StyleSheet.create({
     objectFit: 'contain'
   },
   boldText: {
-    color: 'red',
+    color: '#960018',
     fontWeight: 'black',
-    fontSize: '18px'
+    fontSize: '12px'
   },
   blackBoldText: {
     color: 'black',
     fontWeight: 'black',
-    fontSize: '14px'
+    fontSize: '11px'
   },
   smallText: {
-    fontSize: '14px'
+    width: '80%',
+    fontSize: '10px'
+  },
+  smallTextImage: {
+    textAlign: 'center',
+    width: '80%',
+    fontSize: '10px',
+    marginTop: '6px'
   },
   dcHeader: {
-    width: '98%',
+    width: '100%',
+    height: '30px',
     // fontSize: '14px',
     textAlign: 'center',
     // fontWeight: 'black',
-    border: '1px black solid'
+    border: '0.5px black solid',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   dcRow: {
-    width: '98%',
-    minHeight: '30px',
+    width: '100%',
+    minHeight: '25px',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'stretch',
     justifyContent: 'center',
-    fontSize: '14px'
+    fontSize: '11px'
+  },
+  dcRowTitle: {
+    width: '100%',
+    minHeight: '55px',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    fontSize: '11px'
+  },
+  dcRowLast: {
+    width: '100%',
+    minHeight: '75px',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    fontSize: '11px'
   },
   dcColTitle: {
-    width: '40%',
+    width: '32%',
     height: '100%',
-    border: '1px black solid',
+    border: '0.5px black solid',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    textAlign: 'center',
+    paddingLeft: '10px',
+    paddingRight: '10px'
   },
   dcCol: {
-    width: '15%',
+    width: '17%',
     height: '100%',
-    border: '1px black solid',
+    border: '0.5px black solid',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
   },
-  dcColWide: {
-    width: '60%',
+  dcColHeader: {
+    width: '17%',
     height: '100%',
-    border: '1px black solid',
+    border: '0.5px black solid',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingLeft: '5px',
+    paddingRight: '5px',
+    textAlign: 'center'
+  },
+  dcColWide: {
+    width: '68%',
+    height: '100%',
+    border: '0.5px black solid',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
   },
   dcColWideTall: {
-    width: '60%',
+    width: '68%',
     height: '100%',
-    border: '1px black solid',
+    border: '0.5px black solid',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  note: {
+    fontSize: '11px'
   }
 });
 
@@ -397,7 +471,77 @@ function ItemCard({ itemDetail }: { itemDetail: IItemDetail }) {
   );
 }
 
-function MyPage({ itemDetails, index, date, totalPage }: { itemDetails: IItemDetail[], index: number, date: string, totalPage: number }) {
+function getTopHalfComplaintRegulations(): ReactNode {
+  return (
+    <View style={styles.complaintRegulations}>
+      <View style={styles.textComplaint}>
+        <Text style={styles.mediumText}>QUY ĐỊNH VỀ KHIẾU NẠI HOA HƯ HỎNG</Text>
+      </View>
+
+      <View>
+        <Text>------------------------------------------------------------------</Text>
+      </View>
+
+      <View style={styles.complaintContent}>
+        <Text style={styles.textTitle}>1.THỜI GIAN KHIẾU NẠI :</Text>
+        <Text style={styles.mediumText}>- Đối với khách giao hàng ở <Text style={styles.boldText}>TP.HCM, Biên Hoà, Bình Dương, Cần Giuộc - Long An</Text>: báo cho NBH ngay lập tức khi nhận hàng, kiểm tra và muộn nhất sau <Text style={styles.boldText}>6 tiếng</Text> kể từ lúc giao hàng.</Text>
+        <Text style={styles.mediumText}>- Đối với khách <Text style={styles.boldText}>tỉnh/thành khác</Text>: báo cho NBH ngay lập tức khi nhận hàng, kiểm tra và muộn nhất sau <Text style={styles.boldText}>24 tiếng</Text> kể từ lúc NBH gửi hình kiện hàng gửi đi.</Text>
+      </View>
+
+      <View style={styles.complaintContent}>
+        <Text style={styles.textTitle}>2.NẾU CÓ SAI XÓT VỀ SAI MÀU HOA, LOẠI HOA, KÍCH THƯỚC … VUI LÒNG GIỮ NGUYÊN HIỆN TRẠNG HOA, KHÔNG TUỐT LÁ, KHÔNG LẶT CÁNH HOA</Text>
+        <View style={styles.images1}>
+          <Image src={p1} style={styles.image1}></Image>
+          <Image src={p2} style={styles.image1}></Image>
+        </View>
+      </View>
+    </View>
+  )
+}
+
+function getBottomHalfComplaintRegulations(): ReactNode {
+  return (
+    <View style={styles.complaintContent}>
+      <Text style={styles.textTitle}>3.CUNG CẤP HÌNH ẢNH / VIDEO CLIP THỂ HIỆN HOA HƯ HỎNG:</Text>
+      <View style={styles.images2}>
+        <View style={styles.imageRow1}>
+          <View style={styles.imageCol}>
+            <Image src={p3} style={styles.image1}></Image>
+            <Text style={styles.smallTextImage}>Hình ảnh tổng thể chụp các cành hoa chung 1 tấm hình, dễ thấy</Text>
+          </View>
+          <View style={styles.imageCol}>
+            <Image src={p4} style={styles.image1}></Image>
+            <Text style={styles.smallTextImage}>Hình ảnh cận cảnh thấy được tình trạng hoa hư hỏng chi tiết</Text>
+          </View>
+        </View>
+
+        <View style={styles.imageRow2}>
+          <View style={styles.imageRowGroup}>
+            <View style={styles.imageCol}>
+              <Image src={p5} style={styles.image1}></Image>
+            </View>
+            <View style={styles.imageCol}>
+              <Image src={p6} style={styles.image1}></Image>
+            </View>
+          </View>
+          <Text style={styles.smallTextImage}>Đối với hoa hồng , chụp các cành hoa lỗi chung với bao bì nhà cung cấp và tem barcode</Text>
+        </View>
+      </View>
+    </View>
+  )
+}
+
+function genBottomHalfComplaintRegulations(): ReactNode {
+  return (
+    <Page size="A4" orientation="portrait" style={styles.page}>
+      <View style={styles.complaintRegulationsBottom}>
+        {getBottomHalfComplaintRegulations()}
+      </View>
+    </Page>
+  )
+}
+
+function MyPage({ itemDetails, index, date, totalPage, needDeliveryCharge }: { itemDetails: IItemDetail[], index: number, date: string, totalPage: number, needDeliveryCharge: boolean }) {
 
   function genPageContent(): ReactNode {
     if (index === totalPage - 1 && itemDetails.length < 5) {
@@ -408,186 +552,9 @@ function MyPage({ itemDetails, index, date, totalPage }: { itemDetails: IItemDet
               itemDetails.map((itemDetail: IItemDetail) => <ItemCard itemDetail={itemDetail} />)
             }
           </View>
-          <View style={styles.deliveryChargeWrapper}>
-            <View style={styles.dcHeader}>
-              <Text style={[styles.blackBoldText]}>BIỂU PHÍ GIAO HÀNG</Text>
-            </View>
-
-            <View style={styles.dcRow}>
-              <View style={styles.dcColTitle}>
-                <Text style={[styles.blackBoldText]}>ĐIỂM ĐẾN</Text>
-              </View>
-              <View style={styles.dcCol}>
-                <Text style={[styles.blackBoldText]}>Hóa đơn dưới 1.500.000đ</Text>
-              </View>
-              <View style={styles.dcCol}>
-                <Text style={[styles.blackBoldText]}>Hóa đơn từ 1.500.000đ đến {`<`} 3.000.000đ</Text>
-              </View>
-              <View style={styles.dcCol}>
-                <Text style={[styles.blackBoldText]}>Hóa đơn từ 3.000.000đ đến {`<`} 4.500.000đ</Text>
-              </View>
-              <View style={styles.dcCol}>
-                <Text style={[styles.blackBoldText]}>Hóa đơn trên 4.500.000đ</Text>
-              </View>
-            </View>
-
-            <View style={styles.dcRow}>
-              <View style={styles.dcColTitle}>
-                <Text>Quận 2</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>30.000đ</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>miễn phí</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>miễn phí</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>miễn phí</Text>
-              </View>
-            </View>
-
-            <View style={styles.dcRow}>
-              <View style={styles.dcColTitle}>
-                <Text>Quận 1, 4, Bình Thạnh</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>50.000đ</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>25.000đ</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>miễn phí</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>miễn phí</Text>
-              </View>
-            </View>
-
-            <View style={styles.dcRow}>
-              <View style={styles.dcColTitle}>
-                <Text>Quận 3, 5, 10, Phú Nhuận, Thủ Đức</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>60.000đ</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>30.000đ</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>miễn phí</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>miễn phí</Text>
-              </View>
-            </View>
-
-            <View style={styles.dcRow}>
-              <View style={styles.dcColTitle}>
-                <Text>Quận 7, 8</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>70.000đ</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>35.000đ</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>miễn phí</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>miễn phí</Text>
-              </View>
-            </View>
-
-
-            <View style={styles.dcRow}>
-              <View style={styles.dcColTitle}>
-                <Text>Quận Tân Bình, Gò Vấp</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>80.000đ</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>60.000đ</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>40.000đ</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>miễn phí</Text>
-              </View>
-            </View>
-
-            <View style={styles.dcRow}>
-              <View style={styles.dcColTitle}>
-                <Text>Quận 6, 11</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>90.000đ</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>70.000đ</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>50.000đ</Text>
-              </View>
-
-              <View style={styles.dcCol}>
-                <Text>miễn phí</Text>
-              </View>
-            </View>
-
-
-            <View style={styles.dcRow}>
-              <View style={styles.dcColTitle}>
-                <Text>Sân Bay Tân Sơn Nhất</Text>
-              </View>
-
-              <View style={styles.dcColWide}>
-                <Text>100.000đ / lượt</Text>
-              </View>
-            </View>
-
-            <View style={styles.dcRow}>
-              <View style={styles.dcColTitle}>
-                <Text>Quận 9, 12, Tân Phú, Nhà Bè, Bình Chánh, Bình Tân, Cần Giờ, Hóc Môn, Củ Chi, Bình Dương, Biên Hòa, Long An</Text>
-              </View>
-
-              <View style={styles.dcColWideTall}>
-                <Text>theo giá Grab</Text>
-              </View>
-            </View>
-          </View>
-          {/* <Text style={styles.pageFooter}>
-            {index + 1}/{totalPage}
-          </Text> */}
+          {
+            needDeliveryCharge ? getDeliveryCharge() : getTopHalfComplaintRegulations()
+          }
         </>
       )
     }
@@ -598,9 +565,6 @@ function MyPage({ itemDetails, index, date, totalPage }: { itemDetails: IItemDet
             itemDetails.map((itemDetail: IItemDetail) => <ItemCard itemDetail={itemDetail} />)
           }
         </View>
-        {/* <Text style={styles.pageFooter}>
-          {index + 1}/{totalPage}
-        </Text> */}
       </>
     )
   }
@@ -647,7 +611,7 @@ const dumpItem: IItemDetail = {
   price: ""
 }
 
-function getPageContent(itemDetails: IItemDetail[], date: string) {
+function getPageContent(itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean) {
   console.log(itemDetails);
   let pageNum = Math.ceil(itemDetails.length / perPage);
   let pagesData = new Array<IItemDetail[]>(pageNum);
@@ -657,318 +621,273 @@ function getPageContent(itemDetails: IItemDetail[], date: string) {
       pagesData[i].push(dumpItem);
     }
   }
-  return pagesData.map((pageData, index) => <MyPage itemDetails={pageData} index={index} date={date} totalPage={pageNum} />)
+  return pagesData.map((pageData, index) => <MyPage itemDetails={pageData} index={index} date={date} totalPage={pageNum} needDeliveryCharge={needDeliveryCharge} />)
 }
 
-function MyDocP({ itemDetails, date }: { itemDetails: IItemDetail[], date: string }) {
+function genDeliveryChargeWithTopHalfComplaintRegulations(): ReactNode {
+  return (
+    <Page size="A4" orientation="portrait" style={styles.page}>
+      {
+        getDeliveryCharge()
+      }
+      {
+        getTopHalfComplaintRegulations()
+      }
+    </Page>
+  )
+}
 
-  function genDeliveryCharge(): ReactNode {
-    if (itemDetails.length % 8 < 5 && itemDetails.length % 8 !== 0) {
-      return null
-    }
+function getDeliveryCharge(): ReactNode {
+  return (
+    <View style={styles.deliveryChargeWrapper}>
+      <View style={styles.dcHeader}>
+        <Text style={[styles.blackBoldText]}>BIỂU PHÍ GIAO HÀNG</Text>
+      </View>
+
+      <View style={styles.dcRowTitle}>
+        <View style={styles.dcColTitle}>
+          <Text style={[styles.blackBoldText]}>ĐIỂM ĐẾN</Text>
+        </View>
+        <View style={styles.dcColHeader}>
+          <Text style={[styles.blackBoldText]}>Hóa đơn dưới 1.5 triệu</Text>
+        </View>
+        <View style={styles.dcColHeader}>
+          <Text style={[styles.blackBoldText]}>Hóa đơn từ 1.5 triệu đến {`<`} 3 triệu</Text>
+        </View>
+        <View style={styles.dcColHeader}>
+          <Text style={[styles.blackBoldText]}>Hóa đơn từ 3 triệu đến {`<`} 4.5 triệu</Text>
+        </View>
+        <View style={styles.dcColHeader}>
+          <Text style={[styles.blackBoldText]}>Hóa đơn trên 4.5 triệu</Text>
+        </View>
+      </View>
+
+      <View style={styles.dcRow}>
+        <View style={styles.dcColTitle}>
+          <Text>Quận 2</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>30.000đ</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>miễn phí</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>miễn phí</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>miễn phí</Text>
+        </View>
+      </View>
+
+      <View style={styles.dcRow}>
+        <View style={styles.dcColTitle}>
+          <Text>Quận 1, 4, Bình Thạnh</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>50.000đ</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>25.000đ</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>miễn phí</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>miễn phí</Text>
+        </View>
+      </View>
+
+      <View style={styles.dcRow}>
+        <View style={styles.dcColTitle}>
+          <Text>Quận 3, 5, 10, Phú Nhuận, Thủ Đức</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>60.000đ</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>30.000đ</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>miễn phí</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>miễn phí</Text>
+        </View>
+      </View>
+
+      <View style={styles.dcRow}>
+        <View style={styles.dcColTitle}>
+          <Text>Quận 7, 8</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>70.000đ</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>35.000đ</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>miễn phí</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>miễn phí</Text>
+        </View>
+      </View>
+
+      <View style={styles.dcRow}>
+        <View style={styles.dcColTitle}>
+          <Text>Quận Tân Bình, Gò Vấp</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>80.000đ</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>60.000đ</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>40.000đ</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>miễn phí</Text>
+        </View>
+      </View>
+
+      <View style={styles.dcRow}>
+        <View style={styles.dcColTitle}>
+          <Text>Quận 6, 11</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>90.000đ</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>70.000đ</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>50.000đ</Text>
+        </View>
+
+        <View style={styles.dcCol}>
+          <Text>miễn phí</Text>
+        </View>
+      </View>
+
+
+      <View style={styles.dcRow}>
+        <View style={styles.dcColTitle}>
+          <Text>Sân Bay Tân Sơn Nhất</Text>
+        </View>
+
+        <View style={styles.dcColWide}>
+          <Text>100.000đ / lượt</Text>
+        </View>
+      </View>
+
+      <View style={styles.dcRowLast}>
+        <View style={styles.dcColTitle}>
+          <Text>Quận 9, 12, Tân Phú, Nhà Bè, Bình Chánh, Bình Tân, Cần Giờ, Hóc Môn, Củ Chi, Bình Dương, Biên Hòa, Long An</Text>
+        </View>
+
+        <View style={styles.dcColWideTall}>
+          <Text>theo giá Grab</Text>
+        </View>
+      </View>
+      <View>
+        <Text style={styles.note}>**Ghi chú: Bảng giá trên chưa bao gồm VAT, quý khách có nhu cầu xuất hóa đơn, vui lòng liên hệ công ty để được tiến hành xuất hóa đơn đỏ.</Text>
+      </View>
+    </View>
+  )
+}
+
+function MyDocP({ itemDetails, date, needDeliveryCharge }: { itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean }) {
+
+  console.log("needDeliveryCharge", needDeliveryCharge);
+
+  function genFullComplaintRegulations(): ReactNode {
     return (
       <Page size="A4" orientation="portrait" style={styles.page}>
-        <View style={styles.deliveryChargeWrapper}>
-          <View style={styles.dcHeader}>
-            <Text style={[styles.blackBoldText]}>BIỂU PHÍ GIAO HÀNG</Text>
-          </View>
-
-          <View style={styles.dcRow}>
-            <View style={styles.dcColTitle}>
-              <Text style={[styles.blackBoldText]}>ĐIỂM ĐẾN</Text>
-            </View>
-            <View style={styles.dcCol}>
-              <Text style={[styles.blackBoldText]}>Hóa đơn dưới 1.500.000đ</Text>
-            </View>
-            <View style={styles.dcCol}>
-              <Text style={[styles.blackBoldText]}>Hóa đơn từ 1.500.000đ đến {`<`} 3.000.000đ</Text>
-            </View>
-            <View style={styles.dcCol}>
-              <Text style={[styles.blackBoldText]}>Hóa đơn từ 3.000.000đ đến {`<`} 4.500.000đ</Text>
-            </View>
-            <View style={styles.dcCol}>
-              <Text style={[styles.blackBoldText]}>Hóa đơn trên 4.500.000đ</Text>
-            </View>
-          </View>
-
-          <View style={styles.dcRow}>
-            <View style={styles.dcColTitle}>
-              <Text>Quận 2</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>30.000đ</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>miễn phí</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>miễn phí</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>miễn phí</Text>
-            </View>
-          </View>
-
-          <View style={styles.dcRow}>
-            <View style={styles.dcColTitle}>
-              <Text>Quận 1, 4, Bình Thạnh</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>50.000đ</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>25.000đ</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>miễn phí</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>miễn phí</Text>
-            </View>
-          </View>
-
-          <View style={styles.dcRow}>
-            <View style={styles.dcColTitle}>
-              <Text>Quận 3, 5, 10, Phú Nhuận, Thủ Đức</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>60.000đ</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>30.000đ</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>miễn phí</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>miễn phí</Text>
-            </View>
-          </View>
-
-          <View style={styles.dcRow}>
-            <View style={styles.dcColTitle}>
-              <Text>Quận 7, 8</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>70.000đ</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>35.000đ</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>miễn phí</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>miễn phí</Text>
-            </View>
-          </View>
-
-          <View style={styles.dcRow}>
-            <View style={styles.dcColTitle}>
-              <Text>Quận Tân Bình, Gò Vấp</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>80.000đ</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>60.000đ</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>40.000đ</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>miễn phí</Text>
-            </View>
-          </View>
-
-          <View style={styles.dcRow}>
-            <View style={styles.dcColTitle}>
-              <Text>Quận 6, 11</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>90.000đ</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>70.000đ</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>50.000đ</Text>
-            </View>
-
-            <View style={styles.dcCol}>
-              <Text>miễn phí</Text>
-            </View>
-          </View>
-
-
-          <View style={styles.dcRow}>
-            <View style={styles.dcColTitle}>
-              <Text>Sân Bay Tân Sơn Nhất</Text>
-            </View>
-
-            <View style={styles.dcColWide}>
-              <Text>100.000đ / lượt</Text>
-            </View>
-          </View>
-
-          <View style={styles.dcRow}>
-            <View style={styles.dcColTitle}>
-              <Text>Quận 9, 12, Tân Phú, Nhà Bè, Bình Chánh, Bình Tân, Cần Giờ, Hóc Môn, Củ Chi, Bình Dương, Biên Hòa, Long An</Text>
-            </View>
-
-            <View style={styles.dcColWideTall}>
-              <Text>theo giá Grab</Text>
-            </View>
-          </View>
-          <View>
-            <Text>**Ghi chú: Bảng giá trên chưa bao gồm VAT, quý khách có nhu cầu xuất hóa đơn, vui lòng liên hệ công ty để được tiến hành xuất hóa đơn đỏ.</Text>
-          </View>
-        </View>
         <View style={styles.complaintRegulations}>
-          <View style={styles.textComplaint}>
-            <Text>QUY ĐỊNH VỀ KHIẾU NẠI HOA HƯ HỎNG</Text>
-          </View>
-
-          <View>
-            <Text>------------------------------------------------------------------</Text>
-          </View>
-
-          <View style={styles.complaintContent}>
-            <Text style={styles.textTitle}>1.THỜI GIAN KHIẾU NẠI :</Text>
-            <Text>- Đối với khách giao hàng ở <Text style={styles.boldText}>TP.HCM, Biên Hoà, Bình Dương, Cần Giuộc - Long An</Text>: báo cho NBH ngay lập tức khi nhận hàng, kiểm tra và muộn nhất sau <Text style={styles.boldText}>6 tiếng</Text> kể từ lúc giao hàng.</Text>
-            <Text>- Đối với khách <Text style={styles.boldText}>tỉnh/thành khác</Text>: báo cho NBH ngay lập tức khi nhận hàng, kiểm tra và muộn nhất sau <Text style={styles.boldText}>24 tiếng</Text> kể từ lúc NBH gửi hình kiện hàng gửi đi.</Text>
-          </View>
+          {
+            getTopHalfComplaintRegulations()
+          }
+          {
+            getBottomHalfComplaintRegulations()
+          }
         </View>
       </Page>
     )
   }
 
-  function genComplaintRegulations(): ReactNode {
-    if (itemDetails.length % 8 > 5) {
-      return (
-        <Page size="A4" orientation="portrait" style={styles.page}>
-          <View style={styles.complaintRegulations}>
-            <View style={styles.complaintContent}>
-              <Text style={styles.textTitle}>2.NẾU CÓ SAI XÓT VỀ SAI MÀU HOA, LOẠI HOA, KÍCH THƯỚC … VUI LÒNG GIỮ NGUYÊN HIỆN TRẠNG HOA, KHÔNG TUỐT LÁ, KHÔNG LẶT CÁNH HOA</Text>
-              <View style={styles.images1}>
-                <Image src={p1} style={styles.image1}></Image>
-                <Image src={p2} style={styles.image1}></Image>
-              </View>
-            </View>
-
-            <View style={styles.complaintContent}>
-              <Text style={styles.textTitle}>3.CUNG CẤP HÌNH ẢNH / VIDEO CLIP THỂ HIỆN HOA HƯ HỎNG:</Text>
-              <View style={styles.images2}>
-                <View style={styles.imageRow1}>
-                  <View style={styles.imageCol}>
-                    <Image src={p3} style={styles.image1}></Image>
-                    <Text style={styles.smallText}>Hình ảnh tổng thể chụp các cành hoa chung 1 tấm hình, dễ thấy</Text>
-                  </View>
-                  <View style={styles.imageCol}>
-                    <Image src={p4} style={styles.image1}></Image>
-                    <Text style={styles.smallText}>Hình ảnh cận cảnh thấy được tình trạng hoa hư hỏng chi tiết</Text>
-                  </View>
-                </View>
-
-                <View style={styles.imageRow2}>
-                  <View style={styles.images1}>
-                    <Image src={p5} style={styles.image1}></Image>
-                    <Image src={p6} style={styles.image1}></Image>
-                  </View>
-                  <Text style={styles.smallText}>Đối với hoa hồng , chụp các cành hoa lỗi chung với bao bì nhà cung cấp và tem barcode</Text>
-                </View>
-              </View>
-            </View>
-          </View>
-        </Page>
-      )
-    }
+  function genCaseOne(): ReactNode {
     return (
-      <Page size="A4" orientation="portrait" style={styles.page}>
-        <View style={styles.complaintRegulations}>
-          <View style={styles.textComplaint}>
-            <Text>QUY ĐỊNH VỀ KHIẾU NẠI HOA HƯ HỎNG</Text>
-          </View>
-
-          <View>
-            <Text>------------------------------------------------------------------</Text>
-          </View>
-
-          <View style={styles.complaintContent}>
-            <Text style={styles.textTitle}>1.THỜI GIAN KHIẾU NẠI :</Text>
-            <Text>- Đối với khách giao hàng ở <Text style={styles.boldText}>TP.HCM, Biên Hoà, Bình Dương, Cần Giuộc - Long An</Text>: báo cho NBH ngay lập tức khi nhận hàng, kiểm tra và muộn nhất sau <Text style={styles.boldText}>6 tiếng</Text> kể từ lúc giao hàng.</Text>
-            <Text>- Đối với khách <Text style={styles.boldText}>tỉnh/thành khác</Text>: báo cho NBH ngay lập tức khi nhận hàng, kiểm tra và muộn nhất sau <Text style={styles.boldText}>24 tiếng</Text> kể từ lúc NBH gửi hình kiện hàng gửi đi.</Text>
-          </View>
-
-          <View style={styles.complaintContent}>
-            <Text style={styles.textTitle}>2.NẾU CÓ SAI XÓT VỀ SAI MÀU HOA, LOẠI HOA, KÍCH THƯỚC … VUI LÒNG GIỮ NGUYÊN HIỆN TRẠNG HOA, KHÔNG TUỐT LÁ, KHÔNG LẶT CÁNH HOA</Text>
-            <View style={styles.images1}>
-              <Image src={p1} style={styles.image1}></Image>
-              <Image src={p2} style={styles.image1}></Image>
-            </View>
-          </View>
-
-          <View style={styles.complaintContent}>
-            <Text style={styles.textTitle}>3.CUNG CẤP HÌNH ẢNH / VIDEO CLIP THỂ HIỆN HOA HƯ HỎNG:</Text>
-            <View style={styles.images2}>
-              <View style={styles.imageRow1}>
-                <View style={styles.imageCol}>
-                  <Image src={p3} style={styles.image1}></Image>
-                  <Text style={styles.smallText}>Hình ảnh tổng thể chụp các cành hoa chung 1 tấm hình, dễ thấy</Text>
-                </View>
-                <View style={styles.imageCol}>
-                  <Image src={p4} style={styles.image1}></Image>
-                  <Text style={styles.smallText}>Hình ảnh cận cảnh thấy được tình trạng hoa hư hỏng chi tiết</Text>
-                </View>
-              </View>
-
-              <View style={styles.imageRow2}>
-                <View style={styles.images1}>
-                  <Image src={p5} style={styles.image1}></Image>
-                  <Image src={p6} style={styles.image1}></Image>
-                </View>
-                <Text style={styles.smallText}>Đối với hoa hồng , chụp các cành hoa lỗi chung với bao bì nhà cung cấp và tem barcode</Text>
-              </View>
-            </View>
-          </View>
-        </View>
-      </Page>
+      <>
+        {
+          genDeliveryChargeWithTopHalfComplaintRegulations()
+        }
+        {
+          genBottomHalfComplaintRegulations()
+        }
+      </>
     )
+  }
+
+  function getCaseTwo(): ReactNode {
+    return genFullComplaintRegulations()
+  }
+
+  function genCaseThree(): ReactNode {
+    return genFullComplaintRegulations()
+  }
+
+  function getCaseFour(): ReactNode {
+    return genBottomHalfComplaintRegulations()
+  }
+
+  function genInfo(): ReactNode {
+    if (needDeliveryCharge) {
+      if (itemDetails.length % 8 > 4 || itemDetails.length % 8 == 0) {
+        return genCaseOne()
+      } else {
+        return getCaseTwo()
+      }
+    } else {
+      if (itemDetails.length % 8 > 4 || itemDetails.length % 8 == 0) {
+        return genCaseThree()
+      } else {
+        return getCaseFour()
+      }
+    }
   }
 
   return (
     <Document>
       {
-        getPageContent(itemDetails, date)
+        getPageContent(itemDetails, date, needDeliveryCharge)
       }
       {
-        genDeliveryCharge()
-      }
-      {
-        genComplaintRegulations()
+        genInfo()
       }
     </Document>
   )
