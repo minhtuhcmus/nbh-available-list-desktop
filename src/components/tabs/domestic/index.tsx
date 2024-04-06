@@ -149,6 +149,16 @@ function DomesticForm() {
 						setImageMap(imagesMapTemp);
 					}} />
 				</div>
+				<div className='delivery-charge'>
+						Phí vận chuyển
+						<input
+							type='checkbox'
+							checked={needDeliveryCharge}
+							onChange={()=> {
+								setNeedDeliveryCharge(!needDeliveryCharge)
+							}}
+						/>
+					</div>
 				<button style={{ marginTop: '12px' }} disabled={!isGenActive} onClick={() => {
 
 					setCanGenDoc(true)
@@ -158,37 +168,13 @@ function DomesticForm() {
 			<div className='pdf-content'>
 				<div className='doc-ver'>
 					<div className='ver-name'>English Version</div>
-					{/* <div className='delivery-charge'>
-						Hình ảnh phí vận chuyển(Tiếng Anh)
-						<input type='file' onChange={e => {
-							let files = e.target.files;
-							if (files != null) {
-								setImageDeliveryChargeEng(URL.createObjectURL(files[0]))
-							}
-						}} />
-					</div> */}
-					{canGenDoc && <PDFViewer width={'95%'} height={800}><MyDocEng itemDetails={itemDetails} date={date} /></PDFViewer>}
+					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDocEng itemDetails={itemDetails} date={date} needDeliveryCharge={needDeliveryCharge} /></PDFViewer>}
 				</div>
 
 
 				<div className='doc-ver'>
 					<div className='ver-name'>Bản Tiếng Việt</div>
-					<div className='delivery-charge'>
-						Phí vận chuyển(Tiếng Việt)
-						{/* <input type='file' onChange={e => {
-							let files = e.target.files;
-							if (files != null) {
-								setImageDeliveryChargeVie(URL.createObjectURL(files[0]))
-							}
-						}} /> */}
-						<input
-							type='checkbox'
-							checked={needDeliveryCharge}
-							onChange={()=> {
-								setNeedDeliveryCharge(!needDeliveryCharge)
-							}}
-						/>
-					</div>
+					
 
 					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDocP itemDetails={itemDetails} date={date} needDeliveryCharge={needDeliveryCharge} /></PDFViewer>}
 				</div>
