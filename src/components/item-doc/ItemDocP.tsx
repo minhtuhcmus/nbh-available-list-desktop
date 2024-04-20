@@ -183,7 +183,7 @@ function genBottomHalfComplaintRegulations(): ReactNode {
   )
 }
 
-function MyPage({ itemDetails, index, date, totalPage, needDeliveryCharge }: { itemDetails: IItemDetail[], index: number, date: string, totalPage: number, needDeliveryCharge: boolean }) {
+function MyPage({ itemDetails, index, date, totalPage, needDeliveryCharge, docNote }: { itemDetails: IItemDetail[], index: number, date: string, totalPage: number, needDeliveryCharge: boolean, docNote: string }) {
 
   function genPageContent(): ReactNode {
     if (index === totalPage - 1 && itemDetails.length < 5) {
@@ -230,6 +230,7 @@ function MyPage({ itemDetails, index, date, totalPage, needDeliveryCharge }: { i
           </View>
         </View>
         <Text style={styles.date}>{`BẢNG GIÁ HOA SỈ NGÀY ${date}`}</Text>
+        {docNote && <Text style={styles.docNote}>{docNote}</Text>}
       </View>
       {
         genPageContent()
@@ -253,7 +254,7 @@ const dumpItem: IItemDetail = {
   price: ""
 }
 
-function getPageContent(itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean) {
+function getPageContent(itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean, docNote: string) {
   console.log(itemDetails);
   let pageNum = Math.ceil(itemDetails.length / perPage);
   let pagesData = new Array<IItemDetail[]>(pageNum);
@@ -263,7 +264,7 @@ function getPageContent(itemDetails: IItemDetail[], date: string, needDeliveryCh
       pagesData[i].push(dumpItem);
     }
   }
-  return pagesData.map((pageData, index) => <MyPage itemDetails={pageData} index={index} date={date} totalPage={pageNum} needDeliveryCharge={needDeliveryCharge} />)
+  return pagesData.map((pageData, index) => <MyPage itemDetails={pageData} index={index} date={date} totalPage={pageNum} needDeliveryCharge={needDeliveryCharge} docNote={docNote}/>)
 }
 
 function genDeliveryChargeWithTopHalfComplaintRegulations(): ReactNode {
@@ -463,7 +464,7 @@ function getDeliveryCharge(): ReactNode {
   )
 }
 
-function MyDocP({ itemDetails, date, needDeliveryCharge }: { itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean }) {
+function MyDocP({ itemDetails, date, needDeliveryCharge, docNote }: { itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean, docNote: string }) {
 
   console.log("needDeliveryCharge", needDeliveryCharge);
 
@@ -526,7 +527,7 @@ function MyDocP({ itemDetails, date, needDeliveryCharge }: { itemDetails: IItemD
   return (
     <Document>
       {
-        getPageContent(itemDetails, date, needDeliveryCharge)
+        getPageContent(itemDetails, date, needDeliveryCharge, docNote)
       }
       {
         genInfo()

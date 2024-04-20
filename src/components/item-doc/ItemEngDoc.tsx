@@ -17,6 +17,7 @@ import p7 from "../../assets/p7.png";
 import p8 from "../../assets/p8.png";
 
 import {styles} from "./style";
+import { doc } from "prettier";
 
 Font.register({
   family: "Roboto",
@@ -371,7 +372,7 @@ function getDeliveryCharge(): ReactNode {
 }
 
 
-function MyPage({ itemDetails, index, date, totalPage, needDeliveryCharge }: { itemDetails: IItemDetail[], index: number, date: string, totalPage: number, needDeliveryCharge: boolean }) {
+function MyPage({ itemDetails, index, date, totalPage, needDeliveryCharge, docNote }: { itemDetails: IItemDetail[], index: number, date: string, totalPage: number, needDeliveryCharge: boolean, docNote: string }) {
   function genPageContent(): ReactNode {
     if (index === totalPage - 1 && itemDetails.length < 5) {
       return (
@@ -415,6 +416,7 @@ function MyPage({ itemDetails, index, date, totalPage, needDeliveryCharge }: { i
           </Text>
         </View>
         <Text style={styles.date}>{`FLOWERS AVAILABILITY ON ${date}`}</Text>
+        {docNote && <Text style={styles.docNote}>{docNote}</Text>}
       </View>
       {
         genPageContent()
@@ -438,7 +440,7 @@ const dumpItem: IItemDetail = {
   price: ""
 }
 
-function getPageContent(itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean) {
+function getPageContent(itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean, docNote: string) {
   console.log(itemDetails);
   let pageNum = Math.ceil(itemDetails.length / perPage);
   let pagesData = new Array<IItemDetail[]>(pageNum);
@@ -448,7 +450,7 @@ function getPageContent(itemDetails: IItemDetail[], date: string, needDeliveryCh
       pagesData[i].push(dumpItem);
     }
   }
-  return pagesData.map((pageData, index) => <MyPage itemDetails={pageData} index={index} date={date} totalPage={pageNum} needDeliveryCharge={needDeliveryCharge} />)
+  return pagesData.map((pageData, index) => <MyPage itemDetails={pageData} index={index} date={date} totalPage={pageNum} needDeliveryCharge={needDeliveryCharge} docNote={docNote}/>)
 }
 
 function genDeliveryChargeWithTopHalfComplaintRegulations(): ReactNode {
@@ -464,7 +466,7 @@ function genDeliveryChargeWithTopHalfComplaintRegulations(): ReactNode {
   )
 }
 
-function MyDocEng({ itemDetails, date, needDeliveryCharge }: { itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean }) {
+function MyDocEng({ itemDetails, date, needDeliveryCharge, docNote }: { itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean, docNote: string }) {
   function genFullComplaintRegulations(): ReactNode {
     return (
       <Page size="A4" orientation="portrait" style={styles.page}>
@@ -524,7 +526,7 @@ function MyDocEng({ itemDetails, date, needDeliveryCharge }: { itemDetails: IIte
   return (
     <Document>
       {
-        getPageContent(itemDetails, date, needDeliveryCharge)
+        getPageContent(itemDetails, date, needDeliveryCharge, docNote)
       }
       {
         genInfo()

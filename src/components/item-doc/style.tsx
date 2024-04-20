@@ -363,5 +363,9 @@ export const styles = StyleSheet.create({
     },
     note: {
       fontSize: '11px'
+    },
+    docNote: {
+      color: '#960018',
+      fontWeight: 'bold'
     }
   });

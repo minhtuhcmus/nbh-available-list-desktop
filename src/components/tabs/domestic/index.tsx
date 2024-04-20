@@ -8,46 +8,11 @@ import MyDocP from '../../item-doc/ItemDocP';
 import MyDocEng from '../../item-doc/ItemEngDoc';
 import * as lodash from "lodash";
 
-function Page({ itemDetails, index, date }: { itemDetails: IItemDetail[], index: number, date: string }) {
-	return (
-		<div className="page">
-			<div className="page-header">
-				<img className="logo" src={logo_img} alt="logo" />
-				<div className="date">BẢNG GIÁ HOA SỈ {date}</div>
-			</div>
-			<div className="page-content">
-				{
-					itemDetails.map(info => <ItemCard itemDetail={info} />)
-				}
-			</div>
-			<div className="page-footer">{index + 1}</div>
-		</div>
-	)
-}
-
-const dumpItem: IItemDetail = {
-	available: 0,
-	color: "",
-	images: "",
-	length: "",
-	name: "dump",
-	note: "",
-	orderBy: "",
-	origin: "",
-	packaging: "",
-	price: "",
-	engName: "",
-	engNote: ""
-}
-
 function DomesticForm() {
-	const componentRef = useRef(null);
 	const [itemDetails, setItemDetails] = useState<IItemDetail[]>([]);
 	const [date, setDate] = useState('');
-	const [imageFolder, setImageFolder] = useState<null | string>(null);
-
-	const [prepareVie, setPrepareVie] = useState(false);
-	const [prepareEng, setPrepareEng] = useState(false);
+	const [docNoteEng, setDocNoteEng] = useState('');
+	const [docNoteVie, setDocNoteVie] = useState('');
 
 	const [imageMap, setImageMap] = useState<Map<string, string>>();
 	// const [imageDeliveryChargeVie, setImageDeliveryChargeVie] = useState('');
@@ -63,24 +28,6 @@ function DomesticForm() {
 			setIsGenActive(true);
 		}
 	}, [imageMap])
-
-	const perPage = 9
-
-	const getPageContent = () => {
-		let pageNum = Math.ceil(itemDetails.length / perPage);
-		let pagesData = new Array(pageNum);
-		for (let i = 0; i < pageNum; i++) {
-			pagesData[i] = itemDetails.slice(i * perPage, (i + 1) * perPage)
-			if (pagesData[i].length < perPage) {
-				let needed = perPage - pagesData[i].length;
-				for (let j = 0; j < needed; j++) {
-					pagesData[i].push(dumpItem)
-				}
-			}
-			// console.log(i, pagesData)
-		}
-		return pagesData.map((pageData, index) => <Page itemDetails={pageData} index={index} date={date} />)
-	}
 
 	const readUploadFile = (e: React.ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
@@ -150,15 +97,15 @@ function DomesticForm() {
 					}} />
 				</div>
 				<div className='delivery-charge'>
-						Phí vận chuyển
-						<input
-							type='checkbox'
-							checked={needDeliveryCharge}
-							onChange={()=> {
-								setNeedDeliveryCharge(!needDeliveryCharge)
-							}}
-						/>
-					</div>
+					Phí vận chuyển
+					<input
+						type='checkbox'
+						checked={needDeliveryCharge}
+						onChange={() => {
+							setNeedDeliveryCharge(!needDeliveryCharge)
+						}}
+					/>
+				</div>
 				<button style={{ marginTop: '12px' }} disabled={!isGenActive} onClick={() => {
 
 					setCanGenDoc(true)
@@ -168,15 +115,26 @@ function DomesticForm() {
 			<div className='pdf-content'>
 				<div className='doc-ver'>
 					<div className='ver-name'>English Version</div>
-					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDocEng itemDetails={itemDetails} date={date} needDeliveryCharge={needDeliveryCharge} /></PDFViewer>}
+					<div>
+						Note for Doc: <input
+							type="text"
+							onChange={e => setDocNoteEng(e.target.value)}
+						/>
+					</div>
+
+					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDocEng itemDetails={itemDetails} date={date} needDeliveryCharge={needDeliveryCharge} docNote={docNoteEng} /></PDFViewer>}
 				</div>
 
 
 				<div className='doc-ver'>
 					<div className='ver-name'>Bản Tiếng Việt</div>
-					
-
-					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDocP itemDetails={itemDetails} date={date} needDeliveryCharge={needDeliveryCharge} /></PDFViewer>}
+					<div>
+						Ghi chú tài liệu: <input
+							type="text"
+							onChange={e => setDocNoteVie(e.target.value)}
+						/>
+					</div>
+					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDocP itemDetails={itemDetails} date={date} needDeliveryCharge={needDeliveryCharge} docNote={docNoteVie} /></PDFViewer>}
 				</div>
 			</div>
 		</div>
