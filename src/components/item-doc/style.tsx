@@ -166,7 +166,6 @@ export const styles = StyleSheet.create({
     },
     complaintRegulationsBottom: {
       width: '100%',
-      height: '90%',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -367,5 +366,47 @@ export const styles = StyleSheet.create({
     docNote: {
       color: '#960018',
       fontWeight: 'bold'
+    },
+    flowerCareWrapper: {
+      width: '90%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'flex-start'
+    },
+    flowerCareTitle: {
+      fontSize: '16px',
+      fontWeight: 'black'
+    },
+    flowerCareNote: {
+      fontSize: '14px',
+      fontWeight: 'black',
+      paddingTop: '20px',
+      paddingBottom: '20px'
+    },
+    flowerCareContent: {
+      display: 'flex',
+      flexDirection: 'column'
+    },
+    flowerCareLine: {
+      display: 'flex',
+      flexDirection: 'row',
+      paddingBottom: '10px'
+    },
+    flowerCareBullet: {
+      fontSize: '12px',
+      width: '5%'
+    },
+    flowerCareText: {
+      fontSize: '12px',
+      width: '95%'
+    },
+    flowerCareWrapperBottomFullpage:{
+      width: '100%',
+      height: '90%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'flex-start'
     }
   });
