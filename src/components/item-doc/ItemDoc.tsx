@@ -2,31 +2,31 @@ import {Document, Page, StyleSheet, View, Text, Image, Font } from "@react-pdf/r
 import {IItemDetail} from "../../interface/item/item";
 import logo_img from "../../assets/logo.png";
 
-Font.register({
-  family: "Roboto",
-  fonts: [
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-bold-webfont.ttf',
-      fontWeight: 'bold'
-    },
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-light-webfont.ttf',
-      fontWeight: 'light'
-    },
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-black-webfont.ttf',
-      fontWeight: 'black'
-    },
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-medium-webfont.woff',
-      fontWeight: 'medium'
-    },
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-regular-webfont.ttf',
-      fontWeight: 'normal'
-    }
-  ]  
-});
+// Font.register({
+//   family: "Roboto",
+//   fonts: [
+//     {
+//       src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-bold-webfont.ttf',
+//       fontWeight: 'bold'
+//     },
+//     {
+//       src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-light-webfont.ttf',
+//       fontWeight: 'light'
+//     },
+//     {
+//       src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-black-webfont.ttf',
+//       fontWeight: 'black'
+//     },
+//     {
+//       src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-medium-webfont.woff',
+//       fontWeight: 'medium'
+//     },
+//     {
+//       src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-regular-webfont.ttf',
+//       fontWeight: 'normal'
+//     }
+//   ]  
+// });
 
 const styles = StyleSheet.create({
   page: {

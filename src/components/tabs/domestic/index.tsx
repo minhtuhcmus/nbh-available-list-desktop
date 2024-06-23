@@ -1,18 +1,21 @@
-import React, { useEffect, useRef, useState } from 'react';
-import ItemCard from "../../item-card/ItemCard";
+import React, { useEffect, useState } from 'react';
 import { IItemDetail } from "../../../interface/item/item";
 import * as XLSX from "xlsx";
-import logo_img from "../../../assets/logo.png";
-import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
-import MyDocP from '../../item-doc/ItemDocP';
-import MyDocEng from '../../item-doc/ItemEngDoc';
+import { PDFViewer } from '@react-pdf/renderer';
 import * as lodash from "lodash";
+import { MyDoc } from '../../item-doc/Common';
+import "./style.css";
+import EditorContainer from '../../text-area-editor';
+import { SaveFile } from '../../item-doc/ItemDocDocx';
 
 function DomesticForm() {
 	const [itemDetails, setItemDetails] = useState<IItemDetail[]>([]);
 	const [date, setDate] = useState('');
 	const [docNoteEng, setDocNoteEng] = useState('');
 	const [docNoteVie, setDocNoteVie] = useState('');
+
+	const [docNotiEng, setDocNotiEng] = useState("");
+	const [docNotiVie, setDocNotiVie] = useState("");
 
 	const [imageMap, setImageMap] = useState<Map<string, string>>();
 	// const [imageDeliveryChargeVie, setImageDeliveryChargeVie] = useState('');
@@ -107,7 +110,6 @@ function DomesticForm() {
 					/>
 				</div>
 				<button style={{ marginTop: '12px' }} disabled={!isGenActive} onClick={() => {
-
 					setCanGenDoc(true)
 				}}>Gen Doc</button>
 			</div>
@@ -115,26 +117,40 @@ function DomesticForm() {
 			<div className='pdf-content'>
 				<div className='doc-ver'>
 					<div className='ver-name'>English Version</div>
-					<div>
+					<div className='input-field'>
 						Note for Doc: <input
 							type="text"
 							onChange={e => setDocNoteEng(e.target.value)}
 						/>
 					</div>
+					<div className='input-field'>
+						Noti for Doc: <textarea
+							rows={4} cols={50}
+							onChange={e => setDocNotiEng(e.target.value)}>
+						</textarea>
+					</div>
 
-					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDocEng itemDetails={itemDetails} date={date} needDeliveryCharge={needDeliveryCharge} docNote={docNoteEng} /></PDFViewer>}
+					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDoc itemDetails={itemDetails} date={date} needDeliveryCharge={needDeliveryCharge} docNote={docNoteEng} docNoti={docNotiEng} lang="eng" /></PDFViewer>}
 				</div>
 
 
 				<div className='doc-ver'>
 					<div className='ver-name'>Bản Tiếng Việt</div>
-					<div>
+					<div className='input-field'>
 						Ghi chú tài liệu: <input
 							type="text"
 							onChange={e => setDocNoteVie(e.target.value)}
 						/>
 					</div>
-					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDocP itemDetails={itemDetails} date={date} needDeliveryCharge={needDeliveryCharge} docNote={docNoteVie} /></PDFViewer>}
+					<div className='input-field'>
+						Thông báo:
+						<textarea
+							rows={4} cols={50}
+							onChange={e => setDocNotiVie(e.target.value)}>
+						</textarea>
+						{/* <EditorContainer setDocNoti={setDocNotiVie} /> */}
+					</div>
+					{canGenDoc && <PDFViewer width={'90%'} height={800}><MyDoc itemDetails={itemDetails} date={date} needDeliveryCharge={needDeliveryCharge} docNote={docNoteVie} docNoti={docNotiVie} lang="vie" /></PDFViewer>}
 				</div>
 			</div>
 		</div>

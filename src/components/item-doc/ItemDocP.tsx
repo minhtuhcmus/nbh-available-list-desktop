@@ -1,11 +1,8 @@
-import { Document, Page, StyleSheet, View, Text, Image, Font } from "@react-pdf/renderer";
+import { View, Text, Image, Font } from "@react-pdf/renderer";
 import { IItemDetail } from "../../interface/item/item";
 import logo_img from "../../assets/logo.png";
-import { ReactNode } from "react";
-import { util } from "prettier";
 import { getFlags } from "../../utils/GetFlag";
 import watermark from "../../assets/logo_grayscale.png";
-import { relative } from "path";
 // import { countries, flags } from "../../const/flag";
 import p1 from "../../assets/p1.png";
 import p2 from "../../assets/p2.png";
@@ -16,33 +13,8 @@ import p6 from "../../assets/p6.png";
 import { styles } from "./style";
 import p7 from "../../assets/p7.png";
 import p8 from "../../assets/p8.png";
-Font.register({
-  family: "Roboto",
-  fonts: [
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-bold-webfont.ttf',
-      fontWeight: 'bold'
-    },
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-light-webfont.ttf',
-      fontWeight: 'light'
-    },
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-black-webfont.ttf',
-      fontWeight: 'black'
-    },
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-medium-webfont.woff',
-      fontWeight: 'medium'
-    },
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-regular-webfont.ttf',
-      fontWeight: 'normal'
-    }
-  ]
-});
 
-function ItemCard({ itemDetail }: { itemDetail: IItemDetail }) {
+export function ItemVieCard({ itemDetail }: { itemDetail: IItemDetail }) {
   return (
     <View style={[styles.card, { opacity: itemDetail.name !== 'dump' ? 1 : 0 }]}>
       <Text style={styles.name}>{itemDetail.name?.toLocaleUpperCase("vn")}</Text>
@@ -109,7 +81,7 @@ function ItemCard({ itemDetail }: { itemDetail: IItemDetail }) {
   );
 }
 
-function getTopHalfComplaintRegulations(): ReactNode {
+export function getVieTopHalfComplaintRegulations() {
   return (
     <View style={styles.complaintRegulations}>
       <View style={styles.textComplaint}>
@@ -138,7 +110,7 @@ function getTopHalfComplaintRegulations(): ReactNode {
   )
 }
 
-function getBottomHalfComplaintRegulations(): ReactNode {
+export function getVieBottomHalfComplaintRegulations() {
   return (
     <View style={styles.complaintContent}>
       <Text style={styles.textTitle}>3.CUNG CẤP HÌNH ẢNH / VIDEO CLIP THỂ HIỆN HOA HƯ HỎNG:</Text>
@@ -173,7 +145,7 @@ function getBottomHalfComplaintRegulations(): ReactNode {
   )
 }
 
-function getTopHalfFlowerCare(): ReactNode {
+export function getVieTopHalfFlowerCare() {
   return (
     <View style={styles.flowerCareWrapper}>
       <View style={styles.flowerCareTitle}>
@@ -259,7 +231,7 @@ function getTopHalfFlowerCare(): ReactNode {
   )
 }
 
-function getBottomHalfFlowerCare(): ReactNode {
+export function getVieBottomHalfFlowerCare() {
   return (
     <View style={styles.flowerCareWrapper}>
       <View style={styles.flowerCareContent}>
@@ -325,125 +297,7 @@ function getBottomHalfFlowerCare(): ReactNode {
   )
 }
 
-function genBottomHalfFlowerCare(): ReactNode {
-  return (
-    <Page size="A4" orientation="portrait" style={styles.page}>
-      <View style={styles.flowerCareWrapperBottomFullpage}>
-        {getBottomHalfFlowerCare()}
-      </View>
-    </Page>
-  )
-}
-
-function genBottomHalfComplaintRegulations(): ReactNode {
-  return (
-    <Page size="A4" orientation="portrait" style={styles.page}>
-      <View style={styles.complaintRegulationsBottom}>
-        {getBottomHalfComplaintRegulations()}
-      </View>
-      {getTopHalfFlowerCare()}
-    </Page>
-  )
-}
-
-function MyPage({ itemDetails, index, date, totalPage, needDeliveryCharge, docNote }: { itemDetails: IItemDetail[], index: number, date: string, totalPage: number, needDeliveryCharge: boolean, docNote: string }) {
-
-  function genPageContent(): ReactNode {
-    if (index === totalPage - 1 && itemDetails.length < 5) {
-      return (
-        <>
-          <View style={styles.pageContent}>
-            {
-              itemDetails.map((itemDetail: IItemDetail) => <ItemCard itemDetail={itemDetail} />)
-            }
-          </View>
-          {
-            needDeliveryCharge ? getDeliveryCharge() : getTopHalfComplaintRegulations()
-          }
-        </>
-      )
-    }
-    return (
-      <>
-        <View style={styles.pageContent}>
-          {
-            itemDetails.map((itemDetail: IItemDetail) => <ItemCard itemDetail={itemDetail} />)
-          }
-        </View>
-      </>
-    )
-  }
-
-  return (
-    <Page size="A4" orientation="portrait" style={styles.page}>
-      <View style={styles.pageHeader}>
-        <View style={styles.companyInfo}>
-          <Image style={styles.logo} src={logo_img} />
-          <View style={styles.company}>
-            <Text style={{ fontWeight: 'bold' }}>CÔNG TY TNHH NHÀ BÁN HOA</Text>
-            <Text>Kho hàng: 45 đường số 29, P. An Khánh, Quận 2, TP Thủ Đức, TP Hồ Chí Minh</Text>
-            <Text>Hotline đặt hàng: (028)7300 7299 - 0935 177701 (Zalo/Viber)</Text>
-            <Text>Hotline giao nhận: 078 229 7799</Text>
-            <Text>Email: sales1@nhabanhoa.com</Text>
-          </View>
-          <View>
-            <Text style={styles.pageFooter}>
-              {index + 1}/{totalPage}
-            </Text>
-          </View>
-        </View>
-        <Text style={styles.date}>{`BẢNG GIÁ HOA SỈ NGÀY ${date}`}</Text>
-        {docNote && <Text style={styles.docNote}>{docNote}</Text>}
-      </View>
-      {
-        genPageContent()
-      }
-    </Page>
-  );
-}
-
-const perPage = 8
-
-const dumpItem: IItemDetail = {
-  available: 0,
-  color: "",
-  images: "",
-  length: "",
-  name: "dump",
-  note: "",
-  orderBy: "",
-  origin: "",
-  packaging: "",
-  price: ""
-}
-
-function getPageContent(itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean, docNote: string) {
-  console.log(itemDetails);
-  let pageNum = Math.ceil(itemDetails.length / perPage);
-  let pagesData = new Array<IItemDetail[]>(pageNum);
-  for (let i = 0; i < pageNum; i++) {
-    pagesData[i] = itemDetails.slice(i * perPage, (i + 1) * perPage)
-    if (pagesData[i].length % 2 === 1) {
-      pagesData[i].push(dumpItem);
-    }
-  }
-  return pagesData.map((pageData, index) => <MyPage itemDetails={pageData} index={index} date={date} totalPage={pageNum} needDeliveryCharge={needDeliveryCharge} docNote={docNote}/>)
-}
-
-function genDeliveryChargeWithTopHalfComplaintRegulations(): ReactNode {
-  return (
-    <Page size="A4" orientation="portrait" style={styles.page}>
-      {
-        getDeliveryCharge()
-      }
-      {
-        getTopHalfComplaintRegulations()
-      }
-    </Page>
-  )
-}
-
-function getDeliveryCharge(): ReactNode {
+export function getVieDeliveryCharge() {
   return (
     <View style={styles.deliveryChargeWrapper}>
       <View style={styles.dcHeader}>
@@ -627,104 +481,26 @@ function getDeliveryCharge(): ReactNode {
   )
 }
 
-
-
-function MyDocP({ itemDetails, date, needDeliveryCharge, docNote }: { itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean, docNote: string }) {
-
-  console.log("needDeliveryCharge", needDeliveryCharge);
-
-  function genFullComplaintRegulations(): ReactNode {
-    return (
-      <>
-      <Page size="A4" orientation="portrait" style={styles.page}>
-        <View style={styles.complaintRegulations}>
-          {
-            getTopHalfComplaintRegulations()
-          }
-          {
-            getBottomHalfComplaintRegulations()
-          }
-        </View>
-      </Page>
-      <Page size="A4" orientation="portrait" style={styles.page}>
-        <View style={styles.complaintRegulations}>
-          {
-            getTopHalfFlowerCare()
-          }
-          {
-            getBottomHalfFlowerCare()
-          }
-        </View>
-      </Page>
-      
-      </>
-      
-    )
-  }
-
-  function genCaseOne(): ReactNode {
-    return (
-      <>
-        {
-          genDeliveryChargeWithTopHalfComplaintRegulations()
-        }
-        {
-          genBottomHalfComplaintRegulations()
-        }
-        {
-          genBottomHalfFlowerCare()
-        }
-      </>
-    )
-  }
-
-  function getCaseTwo(): ReactNode {
-    return genFullComplaintRegulations()
-  }
-
-  function genCaseThree(): ReactNode {
-    return genFullComplaintRegulations()
-  }
-
-  function getCaseFour(): ReactNode {
-    return (
-    <>
-      {
-        genBottomHalfComplaintRegulations()
-      }
-      {
-        genBottomHalfFlowerCare()
-      }
-    </>
-    )
-  }
-
-  function genInfo(): ReactNode {
-    if (needDeliveryCharge) {
-      if (itemDetails.length % 8 > 4 || itemDetails.length % 8 == 0) {
-        return genCaseOne()
-      } else {
-        return getCaseTwo()
-      }
-    } else {
-      if (itemDetails.length % 8 > 4 || itemDetails.length % 8 == 0) {
-        return genCaseThree()
-      } else {
-        return getCaseFour()
-      }
-    }
-  }
-
+export function getViePageHeader(index:number, totalPage:number, docNote:string, date:string) {
   return (
-    <Document>
-      {
-        getPageContent(itemDetails, date, needDeliveryCharge, docNote)
-      }
-      {
-        genInfo()
-      }
-    </Document>
+    <View style={styles.pageHeader}>
+        <View style={styles.companyInfo}>
+          <Image style={styles.logo} src={logo_img} />
+          <View style={styles.company}>
+            <Text style={{ fontWeight: 'bold' }}>CÔNG TY TNHH NHÀ BÁN HOA</Text>
+            <Text>Kho hàng: 45 đường số 29, P. An Khánh, Quận 2, TP Thủ Đức, TP Hồ Chí Minh</Text>
+            <Text>Hotline đặt hàng: (028)7300 7299 - 0935 177701 (Zalo/Viber)</Text>
+            <Text>Hotline giao nhận: 078 229 7799</Text>
+            <Text>Email: sales1@nhabanhoa.com</Text>
+          </View>
+          <View>
+            <Text style={styles.pageFooter}>
+              {index + 1}/{totalPage}
+            </Text>
+          </View>
+        </View>
+        <Text style={styles.date}>{`BẢNG GIÁ HOA SỈ NGÀY ${date}`}</Text>
+        {docNote && <Text style={styles.docNote}>{docNote}</Text>}
+      </View>
   )
 }
-
-export default MyDocP;

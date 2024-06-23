@@ -1,4 +1,4 @@
-import { Document, Page, StyleSheet, View, Text, Image, Font } from "@react-pdf/renderer";
+import { Page, View, Text, Image, Font } from "@react-pdf/renderer";
 import { IItemDetail } from "../../interface/item/item";
 import logo_img from "../../assets/logo.png";
 import { ToEngOrigin, ToEngPackaging } from "../../utils/ToEng";
@@ -17,35 +17,8 @@ import p7 from "../../assets/p7.png";
 import p8 from "../../assets/p8.png";
 
 import {styles} from "./style";
-import { doc } from "prettier";
 
-Font.register({
-  family: "Roboto",
-  fonts: [
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-bold-webfont.ttf',
-      fontWeight: 'bold'
-    },
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-light-webfont.ttf',
-      fontWeight: 'light'
-    },
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-black-webfont.ttf',
-      fontWeight: 'black'
-    },
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-medium-webfont.woff',
-      fontWeight: 'medium'
-    },
-    {
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-regular-webfont.ttf',
-      fontWeight: 'normal'
-    }
-  ]
-});
-
-function ItemCard({ itemDetail }: { itemDetail: IItemDetail }) {
+export function ItemEngCard({ itemDetail }: { itemDetail: IItemDetail }) {
   return (
     <View style={[styles.card, { opacity: itemDetail.name !== 'dump' ? 1 : 0 }]}>
       <Text style={styles.name}>{itemDetail.engName?.toLocaleUpperCase("en")}</Text>
@@ -112,7 +85,7 @@ function ItemCard({ itemDetail }: { itemDetail: IItemDetail }) {
   );
 }
 
-function getTopHalfComplaintRegulations(): ReactNode {
+export function getEngTopHalfComplaintRegulations(): ReactNode {
   return (
     <View style={styles.complaintRegulations}>
       <View style={styles.textComplaint}>
@@ -141,7 +114,7 @@ function getTopHalfComplaintRegulations(): ReactNode {
   )
 }
 
-function getBottomHalfComplaintRegulations(): ReactNode {
+export function getEngBottomHalfComplaintRegulations(): ReactNode {
   return (
     <View style={styles.complaintContent}>
       <Text style={styles.textTitle}>3.PICTURES ARE IMPORTANT TO SUPPORT QUALITY CLAIM TO OUR SUPPLIERS. THE PICTURES MUST CLEARLY SHOW THE PROBLEM BEING CLAIMED:</Text>
@@ -177,17 +150,7 @@ bar code sticked inside the carton board around the bunch.</Text>
   )
 }
 
-function genBottomHalfComplaintRegulations(): ReactNode {
-  return (
-    <Page size="A4" orientation="portrait" style={styles.page}>
-      <View style={styles.complaintRegulationsBottom}>
-        {getBottomHalfComplaintRegulations()}
-      </View>
-    </Page>
-  )
-}
-
-function getDeliveryCharge(): ReactNode {
+export function getEngDeliveryCharge(): ReactNode {
   return (
     <View style={styles.deliveryChargeWrapper}>
       <View style={styles.dcHeader}>
@@ -371,37 +334,161 @@ function getDeliveryCharge(): ReactNode {
   )
 }
 
-
-function MyPage({ itemDetails, index, date, totalPage, needDeliveryCharge, docNote }: { itemDetails: IItemDetail[], index: number, date: string, totalPage: number, needDeliveryCharge: boolean, docNote: string }) {
-  function genPageContent(): ReactNode {
-    if (index === totalPage - 1 && itemDetails.length < 5) {
-      return (
-        <>
-          <View style={styles.pageContent}>
-            {
-              itemDetails.map((itemDetail: IItemDetail) => <ItemCard itemDetail={itemDetail} />)
-            }
-          </View>
-          {
-            needDeliveryCharge ? getDeliveryCharge() : getTopHalfComplaintRegulations()
-          }
-        </>
-      )
-    }
-    return (
-      <>
-        <View style={styles.pageContent}>
-          {
-            itemDetails.map((itemDetail: IItemDetail) => <ItemCard itemDetail={itemDetail} />)
-          }
-        </View>
-      </>
-    )
-  }
-
+export function getEngTopHalfFlowerCare(): ReactNode {
   return (
-    <Page size="A4" orientation="portrait" style={styles.page}>
-      <View style={styles.pageHeader}>
+    <View style={styles.flowerCareWrapper}>
+      <View style={styles.flowerCareTitle}>
+        <Text>THAM KHẢO HƯỚNG DẪN BẢO QUẢN HOA</Text>
+      </View>
+      <View style={styles.flowerCareNote}>
+        <Text>Dành cho Shop Hoa</Text>
+      </View>
+      <View style={styles.flowerCareContent}>
+        <View style={styles.flowerCareLine}>
+          <View style={styles.flowerCareBullet}>
+            <Text>1.</Text>
+          </View>
+          <View style={styles.flowerCareText}>
+            <Text>
+              Sau khi nhận hoa từ Nhà Bán Hoa , ngay lập tức mở thùng, tháo bao bì để làm thoáng hoa, tránh việc để hoa quá lâu trong thùng, trong bọc hoặc để quên ở không gian nắng , nóng , hầm sẽ làm ảnh hưởng nghiêm trọng đến chất lượng hoa.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.flowerCareLine}>
+          <View style={styles.flowerCareBullet}>
+            <Text>2.</Text>
+          </View>
+          <View style={styles.flowerCareText}>
+            <Text>
+              Chọn bình / xô có chiều cao tối thiểu bằng một nửa cành hoa để giữ được cành hoa đứng tốt hơn.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.flowerCareLine}>
+          <View style={styles.flowerCareBullet}>
+            <Text>3.</Text>
+          </View>
+          <View style={styles.flowerCareText}>
+            <Text>
+              Kiểm tra bình đựng hoa hoặc xô phải sạch thật kỹ vì bất kì vi khuẩn nào còn sót lại sẽ làm cho hoa héo nhanh hơn.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.flowerCareLine}>
+          <View style={styles.flowerCareBullet}>
+            <Text>4.</Text>
+          </View>
+          <View style={styles.flowerCareText}>
+            <Text>
+              Đổ nước vào bình , trung bình mực nước cao khoảng 10-15cm cho phần lớn các loại hoa. Tuy nhiên, tuỳ vào loại hoa có thể gia giảm lượng nước ít hơn hoặc nhiều hơn cho phù hợp.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.flowerCareLine}>
+          <View style={styles.flowerCareBullet}>
+            <Text>5.</Text>
+          </View>
+          <View style={styles.flowerCareText}>
+            <Text>
+              Lựa chọn thuốc dưỡng hoa phù hợp với từng loại hoa để được hiệu quả cao nhất.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.flowerCareLine}>
+          <View style={styles.flowerCareBullet}>
+            <Text>6.</Text>
+          </View>
+          <View style={styles.flowerCareText}>
+            <Text>
+              Loại bỏ bớt các lá chân , không để bất kì lá nào nằm dưới mực nước vì lá khi phân huỷ sẽ tạo ra vi khuẩn trong nước, làm giảm độ bền hoa.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.flowerCareLine}>
+          <View style={styles.flowerCareBullet}>
+            <Text>7.</Text>
+          </View>
+          <View style={styles.flowerCareText}>
+            <Text>
+              Cắt mới cành hoa , cách gốc khoảng 2-3cm. Dùng kéo sắc cắt cành hoa 45 độ với các loại hoa thân gỗ hoặc dùng dao cắt ngang những cành hoa thân mềm như tulip , dạ lan hương, rum ( loa kèn ), huệ tứ phương ..
+              Lưu ý : Kéo cùn hoặc dụng cụ cùn có thể làm nát thân cây và khiến hoa không thể hấp thụ nước đúng cách.
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  )
+}
+
+export function getEngBottomHalfFlowerCare(): ReactNode {
+  return (
+    <View style={styles.flowerCareWrapper}>
+      <View style={styles.flowerCareContent}>
+        <View style={styles.flowerCareLine}>
+          <View style={styles.flowerCareBullet}>
+            <Text>8.</Text>
+          </View>
+          <View style={styles.flowerCareText}>
+            <Text>
+              Nhiệt độ bảo quản hoa và độ ẩm cực kì quan trọng để giữ được hoa có chất lượng tốt nhất
+              Các loại hoa được nhập khẩu từ các nước ôn đới như Hà Lan , Nhật Bản, Ecuador, New Zealand … cần bảo quản ở nhiệt độ đúng để được chất lượng tốt nhất.
+              Đối với các shop hoa kinh doanh hoa nhập khẩu xứ ôn đới, NBH  khuyến khích khách hàng bảo quản hoa ở tủ mát chuyên dụng ở nhiệt độ từ 10-12 độ C hoặc kho lạnh chuyên dụng ở nhiệt độ 2-8 độ C. Đây là nhiệt độ lý tưởng để bảo quản các loại hoa nhập khẩu từ các nước ôn đới như tulip, mẫu đơn , linh lan, rum , dạ lan hương , đậu thơm, mao lương …
+              Độ ẩm thích hợp là …
+              Tip: Anh/Chị có thể mua máy đo nhiệt độ và độ ẩm đặt vào nơi bảo quản hoa để có thể theo dõi tình trạng nhiệt độ bảo quản hoa được chính xác nhất.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.flowerCareLine}>
+          <View style={styles.flowerCareBullet}>
+            <Text>9.</Text>
+          </View>
+          <View style={styles.flowerCareText}>
+            <Text>
+              Luôn kiểm tra, đảm bảo hoa có đủ lượng nước , thay nước mỗi ngày hoặc thay nước nếu bạn nhận thấy nước chuyển sang màu đục vì vi khuẩn hoặc rác nhiều trong nước sẽ làm tắc nghẽn thân cây, khiến cành hoa không thể hút nước.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.flowerCareLine}>
+          <View style={styles.flowerCareBullet}>
+            <Text>10.</Text>
+          </View>
+          <View style={styles.flowerCareText}>
+            <Text>
+              Để hoa tránh xa nguồn nhiệt và luồng gió, máy quạt , máy lạnh, ánh nắng mặt trời trực tiếp.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.flowerCareLine}>
+          <View style={styles.flowerCareBullet}>
+            <Text>11.</Text>
+          </View>
+          <View style={styles.flowerCareText}>
+            <Text>
+              Để hoa tránh xa các loại trái cây, đặc biệt nếu trong đó có các loại thải ra khí ethylene như táo, chuối, dưa , lê , đào …
+            </Text>
+          </View>
+        </View>
+        <View style={styles.flowerCareLine}>
+          <View style={styles.flowerCareBullet}>
+            <Text>12.</Text>
+          </View>
+          <View style={styles.flowerCareText}>
+            <Text>
+              Sau khi hoa héo tàn , phải rửa bình hoa sạch sẽ , để loại bỏ toàn bộ vi khuẩn. Bình hoa cần sạch hoàn toàn để chuẩn bị cho lần cắm hoa tới .
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View style={styles.flowerCareNote}>
+        <Text>Tổng hợp và biên soạn bởi Nhà Bán Hoa</Text>
+      </View>
+    </View>
+  )
+}
+
+export function getEngPageHeader(index:number, totalPage:number, docNote:string, date:string): ReactNode {
+  return (
+    <View style={styles.pageHeader}>
         <View style={styles.companyInfo}>
           <Image style={styles.logo} src={logo_img} />
           <View style={styles.company}>
@@ -418,121 +505,5 @@ function MyPage({ itemDetails, index, date, totalPage, needDeliveryCharge, docNo
         <Text style={styles.date}>{`FLOWERS AVAILABILITY ON ${date}`}</Text>
         {docNote && <Text style={styles.docNote}>{docNote}</Text>}
       </View>
-      {
-        genPageContent()
-      }
-    </Page>
-  );
-}
-
-const perPage = 8
-
-const dumpItem: IItemDetail = {
-  available: 0,
-  color: "",
-  images: "",
-  length: "",
-  name: "dump",
-  note: "",
-  orderBy: "",
-  origin: "",
-  packaging: "",
-  price: ""
-}
-
-function getPageContent(itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean, docNote: string) {
-  console.log(itemDetails);
-  let pageNum = Math.ceil(itemDetails.length / perPage);
-  let pagesData = new Array<IItemDetail[]>(pageNum);
-  for (let i = 0; i < pageNum; i++) {
-    pagesData[i] = itemDetails.slice(i * perPage, (i + 1) * perPage)
-    if (pagesData[i].length % 2 === 1) {
-      pagesData[i].push(dumpItem);
-    }
-  }
-  return pagesData.map((pageData, index) => <MyPage itemDetails={pageData} index={index} date={date} totalPage={pageNum} needDeliveryCharge={needDeliveryCharge} docNote={docNote}/>)
-}
-
-function genDeliveryChargeWithTopHalfComplaintRegulations(): ReactNode {
-  return (
-    <Page size="A4" orientation="portrait" style={styles.page}>
-      {
-        getDeliveryCharge()
-      }
-      {
-        getTopHalfComplaintRegulations()
-      }
-    </Page>
   )
 }
-
-function MyDocEng({ itemDetails, date, needDeliveryCharge, docNote }: { itemDetails: IItemDetail[], date: string, needDeliveryCharge: boolean, docNote: string }) {
-  function genFullComplaintRegulations(): ReactNode {
-    return (
-      <Page size="A4" orientation="portrait" style={styles.page}>
-        <View style={styles.complaintRegulations}>
-          {
-            getTopHalfComplaintRegulations()
-          }
-          {
-            getBottomHalfComplaintRegulations()
-          }
-        </View>
-      </Page>
-    )
-  }
-
-  function genCaseOne(): ReactNode {
-    return (
-      <>
-        {
-          genDeliveryChargeWithTopHalfComplaintRegulations()
-        }
-        {
-          genBottomHalfComplaintRegulations()
-        }
-      </>
-    )
-  }
-
-  function getCaseTwo(): ReactNode {
-    return genFullComplaintRegulations()
-  }
-
-  function genCaseThree(): ReactNode {
-    return genFullComplaintRegulations()
-  }
-
-  function getCaseFour(): ReactNode {
-    return genBottomHalfComplaintRegulations()
-  }
-
-  function genInfo(): ReactNode {
-    if (needDeliveryCharge) {
-      if (itemDetails.length % 8 > 4 || itemDetails.length % 8 == 0) {
-        return genCaseOne()
-      } else {
-        return getCaseTwo()
-      }
-    } else {
-      if (itemDetails.length % 8 > 4 || itemDetails.length % 8 == 0) {
-        return genCaseThree()
-      } else {
-        return getCaseFour()
-      }
-    }
-  }
-
-  return (
-    <Document>
-      {
-        getPageContent(itemDetails, date, needDeliveryCharge, docNote)
-      }
-      {
-        genInfo()
-      }
-    </Document>
-  )
-}
-
-export default MyDocEng;

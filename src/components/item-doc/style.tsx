@@ -1,4 +1,35 @@
-import { StyleSheet } from "@react-pdf/renderer";
+import { Font, StyleSheet } from "@react-pdf/renderer";
+
+Font.register({
+    family: "Roboto",
+    fonts: [
+      {
+        src: "https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-bold-webfont.ttf",
+        fontWeight: 'bold',
+      },
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-light-webfont.ttf',
+        fontWeight: 'light',
+      },
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-black-webfont.ttf',
+        fontWeight: 'ultrabold'
+      },
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-medium-webfont.woff',
+        fontWeight: 'medium'
+      },
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-regular-webfont.ttf',
+        fontWeight: 'normal'
+      },
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.0.1/fonts/Roboto/roboto-bolditalic-webfont.ttf',
+        fontStyle: 'italic',
+        fontWeight: 'bold'
+      }
+    ]  
+  });
 
 export const styles = StyleSheet.create({
     page: {
@@ -166,6 +197,7 @@ export const styles = StyleSheet.create({
     },
     complaintRegulationsBottom: {
       width: '100%',
+      height: '90%',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -173,7 +205,7 @@ export const styles = StyleSheet.create({
     },
     textComplaint: {
       width: '100%',
-      fontWeight: 'black',
+      fontWeight: 'ultrabold',
       marginTop: '4px',
       marginBottom: '4px',
       display: 'flex',
@@ -194,7 +226,7 @@ export const styles = StyleSheet.create({
     textTitle: {
       textDecoration: 'underline',
       width: '100%',
-      fontWeight: 'black',
+      fontWeight: 'ultrabold',
       fontSize: '12px',
       marginBottom: '10px'
     },
@@ -252,12 +284,12 @@ export const styles = StyleSheet.create({
     },
     boldText: {
       color: '#960018',
-      fontWeight: 'black',
+      fontWeight: 'ultrabold',
       fontSize: '12px'
     },
     blackBoldText: {
       color: 'black',
-      fontWeight: 'black',
+      fontWeight: 'ultrabold',
       fontSize: '11px'
     },
     smallText: {
@@ -275,7 +307,7 @@ export const styles = StyleSheet.create({
       height: '30px',
       // fontSize: '14px',
       textAlign: 'center',
-      // fontWeight: 'black',
+      // fontWeight: 'ultrabold',
       border: '0.5px black solid',
       display: 'flex',
       flexDirection: 'row',
@@ -380,7 +412,7 @@ export const styles = StyleSheet.create({
     },
     flowerCareNote: {
       fontSize: '14px',
-      fontWeight: 'black',
+      fontWeight: 'ultrabold',
       paddingTop: '20px',
       paddingBottom: '20px'
     },
@@ -408,5 +440,21 @@ export const styles = StyleSheet.create({
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'flex-start'
+    },
+    firstPageNoti: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: '80%',
+      width: '100%'
+    },
+    docNoti: {
+      color: '#960018',
+      fontSize: '16px',
+      fontWeight: 'bold',
+      fontStyle: 'italic',
+      width: '90%',
+      height: '20%'
     }
   });
