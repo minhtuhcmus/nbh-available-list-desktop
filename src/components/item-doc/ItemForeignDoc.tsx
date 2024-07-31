@@ -211,6 +211,13 @@ function ItemCard({itemDetail, currency}: {itemDetail:IItemExport, currency:stri
           </View>
           <View style={styles.infoDetail}>
             <View style={styles.title}>
+              <Text>Unit</Text>
+              <Text>{`: `}</Text>
+            </View>
+            <Text style={styles.detail}>{itemDetail.pricingUnit}</Text>
+          </View>
+          <View style={styles.infoDetail}>
+            <View style={styles.title}>
               <Text>Length</Text>
               <Text>{`: `}</Text>
             </View>
@@ -218,31 +225,39 @@ function ItemCard({itemDetail, currency}: {itemDetail:IItemExport, currency:stri
           </View>
           <View style={styles.infoDetail}>
             <View style={styles.title}>
-              <Text>Weight per Unit</Text>
+              <Text>Weight</Text>
               <Text>{`: `}</Text>
             </View>
             <Text style={styles.detail}>{itemDetail.weightPerUnit}</Text>
           </View>
+          
           <View style={styles.infoDetail}>
             <View style={styles.title}>
-              <Text>Pricing Unit</Text>
-              <Text>{`: `}</Text>
-            </View>
-            <Text style={styles.detail}>{itemDetail.pricingUnit}</Text>
-          </View>
-          <View style={styles.infoDetail}>
-            <View style={styles.title}>
-              <Text>Unit per Box</Text>
+              <Text>Unit / Box</Text>
               <Text>{`: `}</Text>
             </View>
             <Text style={styles.detail}>{itemDetail.unitPerBox}</Text>
           </View>
           <View style={styles.infoDetail}>
             <View style={styles.title}>
-              <Text>Weight per Box</Text>
+              <Text>Box Weight</Text>
               <Text>{`: `}</Text>
             </View>
             <Text style={styles.detail}>{itemDetail.weightPerBox}</Text>
+          </View>
+          <View style={styles.infoDetail}>
+            <View style={styles.title}>
+              <Text>MMQ</Text>
+              <Text>{`: `}</Text>
+            </View>
+            <Text style={styles.detail}>{itemDetail.mmq}</Text>
+          </View>
+          <View style={styles.infoDetail}>
+            <View style={styles.title}>
+              <Text>Remarks</Text>
+              <Text>{`: `}</Text>
+            </View>
+            <Text style={styles.detail}>{itemDetail.remarks}</Text>
           </View>
         </View>
       </View>
@@ -315,7 +330,9 @@ const dumpItem:IItemExport = {
   unitPerBox: "0",
   price: "0",
   weightPerUnit: "",
-  pricingUnit: ""
+  pricingUnit: "",
+  mmq: "",
+  remarks: ""
 }
 
 function getPageContent(itemDetails: IItemExport[], customerInfo: ICustomerInfo) {

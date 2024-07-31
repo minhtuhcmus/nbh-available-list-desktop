@@ -26,10 +26,10 @@ function App() {
 					XUẤT KHẨU
 				</div>
 			</div>
-			<div className={`${tabIndex === 0 ? '' : 'hidden'}`}>
+			<div className={`${tabIndex === 0 ? 'content-show' : 'hidden'}`}>
 				<DomesticForm />
 			</div>
-			<div className={`${tabIndex === 1 ? '' : 'hidden'}`}>
+			<div className={`${tabIndex === 1 ? 'content-show' : 'hidden'}`}>
 				<ForeignForm />
 			</div>
 

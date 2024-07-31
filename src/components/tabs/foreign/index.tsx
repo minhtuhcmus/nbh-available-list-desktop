@@ -7,14 +7,16 @@ import { PDFViewer } from '@react-pdf/renderer';
 import ItemForeignDoc from '../../item-doc/ItemForeignDoc';
 import * as lodash from "lodash";
 
-const dumpItem:IItemExport = {
+const dumpItem: IItemExport = {
 	name: 'dump',
 	length: '',
 	weightPerUnit: '',
 	pricingUnit: '',
 	price: '',
 	unitPerBox: '',
-	weightPerBox: ''
+	weightPerBox: '',
+	mmq: '',
+	remarks: ''
 }
 
 function ForeignForm() {
@@ -37,7 +39,7 @@ function ForeignForm() {
 			var reader = new FileReader();
 			reader.onload = (e) => {
 				var data = e.target?.result;
-				
+
 				// console.log(e.target?.result)
 				var workbook = XLSX.read(data, { type: "array" });
 				for (let i = 0; i < workbook.SheetNames.length; i++) {
@@ -46,7 +48,7 @@ function ForeignForm() {
 
 					var customerRange = XLSX.utils.encode_range({ s: { c: 1, r: 0 }, e: { c: 1, r: 3 } })
 
-					let info:string[] = XLSX.utils.sheet_to_json(worksheet, {range: customerRange, header: 1});
+					let info: string[] = XLSX.utils.sheet_to_json(worksheet, { range: customerRange, header: 1 });
 					console.log(info);
 
 					let customerInfoTemp: ICustomerInfo = {
@@ -57,7 +59,7 @@ function ForeignForm() {
 					}
 
 					var infoRange = XLSX.utils.encode_range({ s: { c: 1, r: 5 }, e: { c: 11, r: 200 } })
-					let sheetCont: IItemExport[] = XLSX.utils.sheet_to_json(worksheet, {range: infoRange, blankrows: false});
+					let sheetCont: IItemExport[] = XLSX.utils.sheet_to_json(worksheet, { range: infoRange, blankrows: false });
 					console.log(sheetCont);
 					if (sheetCont.length % 8 != 0) {
 						let need = 8 - sheetCont.length % 8;
@@ -97,7 +99,7 @@ function ForeignForm() {
 	}, [imageMap])
 
 	return (
-		<>
+		<div className="pdf-export-wrapper">
 			<div className="handler">
 				<div className="file-upload">
 					Chọn file {" "}
@@ -130,10 +132,11 @@ function ForeignForm() {
 			<div className='pdf-content-export'>
 				{
 					itemDetails.map((itemDetail, index) => <div className='doc-ver-export'>
-					{canGenDoc && <PDFViewer width={'95%'} height={800}><ItemForeignDoc itemDetails={itemDetail} customerInfo={customerInfos[index]}/></PDFViewer>}
-				</div>)
+						{canGenDoc && <PDFViewer width={'95%'} height={800}><ItemForeignDoc itemDetails={itemDetail} customerInfo={customerInfos[index]} /></PDFViewer>}
+					</div>)
 				}
-			</div></>
+			</div>
+		</div>
 	)
 }
 

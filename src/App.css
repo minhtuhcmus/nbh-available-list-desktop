@@ -141,6 +141,14 @@
   width: 100px;
 }
 
+.content-show{
+  width: 100%;
+}
+
+.pdf-export-wrapper{
+  width: 100%;
+}
+
 .pdf-content-export {
   display: flex;
   flex-direction: row;
