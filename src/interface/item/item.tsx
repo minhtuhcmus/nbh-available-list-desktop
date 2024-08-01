@@ -22,7 +22,7 @@ export interface IItemExport {
   price: string;
   unitPerBox: string;
   weightPerBox: string;
-  mmq: string;
+  MOQ: string;
   remarks: string;
   images?: string;
 }

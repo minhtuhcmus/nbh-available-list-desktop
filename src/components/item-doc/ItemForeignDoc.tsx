@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     marginTop: '2'
   },
   title: {
-    width: '60%',
+    width: '45%',
     textAlign: 'left',
     fontSize: 11,
     display: 'flex',
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   detail: {
-    width: '40%',
+    width: '55%',
     textAlign: 'left',
     fontSize: 11,
     display: 'flex',
@@ -207,15 +207,15 @@ function ItemCard({itemDetail, currency}: {itemDetail:IItemExport, currency:stri
               <Text>Price</Text>
               <Text>{`: `}</Text>
             </View>
-            <Text style={styles.detail}>{getSymbolFromCurrency(currency)} {itemDetail.price}</Text>
+            <Text style={styles.detail}>{getSymbolFromCurrency(currency)} {itemDetail.price} / {itemDetail.pricingUnit}</Text>
           </View>
-          <View style={styles.infoDetail}>
+          {/* <View style={styles.infoDetail}>
             <View style={styles.title}>
               <Text>Unit</Text>
               <Text>{`: `}</Text>
             </View>
             <Text style={styles.detail}>{itemDetail.pricingUnit}</Text>
-          </View>
+          </View> */}
           <View style={styles.infoDetail}>
             <View style={styles.title}>
               <Text>Length</Text>
@@ -231,7 +231,7 @@ function ItemCard({itemDetail, currency}: {itemDetail:IItemExport, currency:stri
             <Text style={styles.detail}>{itemDetail.weightPerUnit}</Text>
           </View>
           
-          <View style={styles.infoDetail}>
+          {/* <View style={styles.infoDetail}>
             <View style={styles.title}>
               <Text>Unit / Box</Text>
               <Text>{`: `}</Text>
@@ -244,13 +244,13 @@ function ItemCard({itemDetail, currency}: {itemDetail:IItemExport, currency:stri
               <Text>{`: `}</Text>
             </View>
             <Text style={styles.detail}>{itemDetail.weightPerBox}</Text>
-          </View>
+          </View> */}
           <View style={styles.infoDetail}>
             <View style={styles.title}>
-              <Text>MMQ</Text>
+              <Text>MOQ</Text>
               <Text>{`: `}</Text>
             </View>
-            <Text style={styles.detail}>{itemDetail.mmq}</Text>
+            <Text style={styles.detail}>{itemDetail.MOQ}</Text>
           </View>
           <View style={styles.infoDetail}>
             <View style={styles.title}>
@@ -331,7 +331,7 @@ const dumpItem:IItemExport = {
   price: "0",
   weightPerUnit: "",
   pricingUnit: "",
-  mmq: "",
+  MOQ: "",
   remarks: ""
 }
 

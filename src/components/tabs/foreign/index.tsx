@@ -15,7 +15,7 @@ const dumpItem: IItemExport = {
 	price: '',
 	unitPerBox: '',
 	weightPerBox: '',
-	mmq: '',
+	MOQ: '',
 	remarks: ''
 }
 
