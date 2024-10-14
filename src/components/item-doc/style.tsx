@@ -215,6 +215,15 @@ export const styles = StyleSheet.create({
     mediumText: {
       fontSize: '12px'
     },
+    mediumTextBold: {
+      fontSize: '12px',
+      fontWeight: 'black'
+    },
+    mediumTextBoldUnderline: {
+      fontSize: '12px',
+      fontWeight: 'black',
+      textDecoration: 'underline'
+    },
     complaintContent: {
       width: '90%',
       display: 'flex',

@@ -106,6 +106,12 @@ export function getVieTopHalfComplaintRegulations() {
           <Image src={p8} style={styles.image1}></Image>
         </View>
       </View>
+      <View style={styles.complaintContent}>
+        <Text style={styles.textTitle}>3.HƯỚNG XỬ LÝ HOA</Text>
+        <Text style={styles.mediumText}>Tùy vào mức độ hư hỏng của hoa, NBH sẽ hoàn tiền hoặc giảm giá cho loại hoa đó nếu vẫn có thể sử dụng. Quý khách vui lòng cung cấp hình ảnh rõ ràng của hoa hư hỏng theo yêu cầu hình ảnh bên dưới.</Text>
+        <Text style={styles.mediumText}><Text style={styles.mediumTextBoldUnderline}>Lưu ý: </Text><Text style={styles.mediumText}>Nếu chưa có sự đồng ý từ hai bên, <Text style={styles.mediumTextBoldUnderline}>xin vui lòng không tự ý cắt đầu hoa.</Text></Text></Text>
+        <Text style={styles.mediumTextBoldUnderline}>Xin hãy tôn trọng sự sống của hoa.</Text>
+      </View>
     </View>
   )
 }
@@ -113,7 +119,7 @@ export function getVieTopHalfComplaintRegulations() {
 export function getVieBottomHalfComplaintRegulations() {
   return (
     <View style={styles.complaintContent}>
-      <Text style={styles.textTitle}>3.CUNG CẤP HÌNH ẢNH / VIDEO CLIP THỂ HIỆN HOA HƯ HỎNG:</Text>
+      <Text style={styles.textTitle}>4.CUNG CẤP HÌNH ẢNH / VIDEO CLIP THỂ HIỆN HOA HƯ HỎNG:</Text>
       <View style={styles.images2}>
         <View style={styles.imageRow1}>
           <View style={styles.imageCol}>
@@ -481,26 +487,26 @@ export function getVieDeliveryCharge() {
   )
 }
 
-export function getViePageHeader(index:number, totalPage:number, docNote:string, date:string) {
+export function getViePageHeader(index: number, totalPage: number, docNote: string, date: string) {
   return (
     <View style={styles.pageHeader}>
-        <View style={styles.companyInfo}>
-          <Image style={styles.logo} src={logo_img} />
-          <View style={styles.company}>
-            <Text style={{ fontWeight: 'bold' }}>CÔNG TY TNHH NHÀ BÁN HOA</Text>
-            <Text>Kho hàng: 45 đường số 29, P. An Khánh, Quận 2, TP Thủ Đức, TP Hồ Chí Minh</Text>
-            <Text>Hotline đặt hàng: (028)7300 7299 - 0935 177701 (Zalo/Viber)</Text>
-            <Text>Hotline giao nhận: 078 229 7799</Text>
-            <Text>Email: sales1@nhabanhoa.com</Text>
-          </View>
-          <View>
-            <Text style={styles.pageFooter}>
-              {index + 1}/{totalPage}
-            </Text>
-          </View>
+      <View style={styles.companyInfo}>
+        <Image style={styles.logo} src={logo_img} />
+        <View style={styles.company}>
+          <Text style={{ fontWeight: 'bold' }}>CÔNG TY TNHH NHÀ BÁN HOA</Text>
+          <Text>Kho hàng: 45 đường số 29, P. An Khánh, Quận 2, TP Thủ Đức, TP Hồ Chí Minh</Text>
+          <Text>Hotline đặt hàng: (028)7300 7299 - 0935 177701 (Zalo/Viber)</Text>
+          <Text>Hotline giao nhận: 078 229 7799</Text>
+          <Text>Email: sales1@nhabanhoa.com</Text>
         </View>
-        <Text style={styles.date}>{`BẢNG GIÁ HOA SỈ NGÀY ${date}`}</Text>
-        {docNote && <Text style={styles.docNote}>{docNote}</Text>}
+        <View>
+          <Text style={styles.pageFooter}>
+            {index + 1}/{totalPage}
+          </Text>
+        </View>
       </View>
+      <Text style={styles.date}>{`BẢNG GIÁ HOA SỈ NGÀY ${date}`}</Text>
+      {docNote && <Text style={styles.docNote}>{docNote}</Text>}
+    </View>
   )
 }
