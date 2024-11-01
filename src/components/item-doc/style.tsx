@@ -215,6 +215,18 @@ export const styles = StyleSheet.create({
     mediumText: {
       fontSize: '12px'
     },
+    normalText:{
+      fontSize: '10px'
+    },
+    normalTextBold:{
+      fontWeight: 'ultrabold',
+      fontSize: '10px'
+    },
+    normalTextBoldUnderline:{
+      fontWeight: 'ultrabold',
+      fontSize: '10px',
+      textDecoration: 'underline'
+    },
     mediumTextBold: {
       fontSize: '12px',
       fontWeight: 'black'
@@ -232,12 +244,26 @@ export const styles = StyleSheet.create({
       justifyContent: 'flex-start',
       marginBottom: '14px'
     },
+    complaintContentSm: {
+      width: '90%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      marginBottom: '8px'
+    },
     textTitle: {
       textDecoration: 'underline',
       width: '100%',
       fontWeight: 'ultrabold',
       fontSize: '12px',
       marginBottom: '10px'
+    },
+    textTitleNoMargin:{
+      textDecoration: 'underline',
+      width: '100%',
+      fontWeight: 'ultrabold',
+      fontSize: '12px',
     },
     images1: {
       width: '90%',
@@ -295,6 +321,9 @@ export const styles = StyleSheet.create({
       color: '#960018',
       fontWeight: 'ultrabold',
       fontSize: '12px'
+    },
+    boldTextNoSize: {
+      fontWeight: 'ultrabold'
     },
     blackBoldText: {
       color: 'black',

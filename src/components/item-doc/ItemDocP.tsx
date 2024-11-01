@@ -92,10 +92,11 @@ export function getVieTopHalfComplaintRegulations() {
         <Text>------------------------------------------------------------------</Text>
       </View>
 
-      <View style={styles.complaintContent}>
-        <Text style={styles.textTitle}>1.THỜI GIAN KHIẾU NẠI :</Text>
-        <Text style={styles.mediumText}>- Đối với khách giao hàng ở <Text style={styles.boldText}>TP.HCM, Biên Hoà, Bình Dương, Cần Giuộc - Long An</Text>: báo cho NBH ngay lập tức khi nhận hàng, kiểm tra và muộn nhất sau <Text style={styles.boldText}>6 tiếng</Text> kể từ lúc giao hàng.</Text>
-        <Text style={styles.mediumText}>- Đối với khách <Text style={styles.boldText}>tỉnh/thành khác</Text>: báo cho NBH ngay lập tức khi nhận hàng, kiểm tra và muộn nhất sau <Text style={styles.boldText}>24 tiếng</Text> kể từ lúc NBH gửi hình kiện hàng gửi đi.</Text>
+      <View style={styles.complaintContentSm}>
+        <Text style={styles.textTitleNoMargin}>1.THỜI GIAN KHIẾU NẠI :</Text>
+        <Text style={styles.normalText}>Quý khách vui lòng thông báo cho NBH ngay lập tức khi nhận hàng, kiểm tra và muộn nhất sau <Text style={styles.normalTextBoldUnderline}>3 tiếng</Text> kể từ lúc nhận hàng.</Text>
+        <Text style={styles.normalText}>* Đối với khách các tỉnh/thành gửi hàng bằng xe khách, máy bay ... xin lưu ý kiểm tra điện thoại , tin nhắn và lấy hàng ngay khi đơn vị vận chuyển thông báo hàng đến.</Text>
+        <Text style={styles.normalTextBold}>NBH xin từ chối giải quyết khiếu nại nếu trường hợp khách không nhận hàng sớm, để thùng hoa nằm chờ lâu ở nhà xe làm ảnh hưởng chất lượng hoa.</Text>
       </View>
 
       <View style={styles.complaintContent}>
