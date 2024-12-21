@@ -98,7 +98,7 @@ export function getEngTopHalfComplaintRegulations(): ReactNode {
 
       <View style={styles.complaintContent}>
         <Text style={styles.textTitle}>1.CLAIMING PERIOD :</Text>
-        <Text style={styles.mediumText}>- For <Text style={styles.boldText}>HCM City, Bien Hoa, Binh Duong, Can Giuoc - Long An</Text>: please notify us immediately when you receive the flowers , and no later than <Text style={styles.boldText}>6 hours</Text> upon arrival.</Text>
+        <Text style={styles.mediumText}>- For <Text style={styles.boldText}>HCM City, Bien Hoa, Binh Duong, Can Giuoc - Long An</Text>: please notify us immediately when you receive the flowers , and no later than <Text style={styles.boldText}>3 hours</Text> upon arrival.</Text>
         <Text style={styles.mediumText}>- For <Text style={styles.boldText}>others province/country</Text>: please notify us immediately when you receive the flowers, and no later than <Text style={styles.boldText}>24 hours</Text> from the time NBH sent the picture of the box.</Text>
       </View>
 
