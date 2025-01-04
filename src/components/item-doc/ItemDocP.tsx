@@ -496,8 +496,8 @@ export function getViePageHeader(index: number, totalPage: number, docNote: stri
         <View style={styles.company}>
           <Text style={{ fontWeight: 'bold' }}>CÔNG TY TNHH NHÀ BÁN HOA</Text>
           <Text>Kho hàng: 45 đường số 29, P. An Khánh, Quận 2, TP Thủ Đức, TP Hồ Chí Minh</Text>
-          <Text>Hotline đặt hàng: (028)7300 7299 - 0935 177701 (Zalo/Viber)</Text>
-          <Text>Hotline giao nhận: 078 229 7799</Text>
+          <Text>Hotline đặt hàng: (Zalo) 0935 17 77 01  079 529 7799 / (Whatsapp) (028) 7300 7299</Text>
+          <Text>Hotline giao nhận: 078 229 7799 - 079 969 7799</Text>
           <Text>Email: sales1@nhabanhoa.com</Text>
         </View>
         <View>
