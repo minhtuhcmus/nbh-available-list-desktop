@@ -197,7 +197,7 @@ function MyPage({itemDetails, index, date, totalPage}: {itemDetails: IItemDetail
         <View style={styles.company}>
           <Text style={{fontWeight: 'bold'}}>CÔNG TY TNHH NHÀ BÁN HOA</Text>
           <Text>Kho hàng: 45 đường số 29, P. An Khánh, Quận 2, TP Thủ Đức</Text>
-          <Text>Hotline đặt hàng: (028)7300 7299 - 0935 177701 (Zalo/Viber)</Text>
+          <Text>Hotline đặt hàng: 0935 17 77 01 - 079 529 7799 (Zalo/WhatsApp) - (028) 7300 7299</Text>
           <Text>Hotline giao nhận: 078 229 7799</Text>
           <Text>Email: sales1@nhabanhoa.com</Text>
         </View>

@@ -494,7 +494,7 @@ export function getEngPageHeader(index:number, totalPage:number, docNote:string,
           <View style={styles.company}>
             <Text style={{ fontWeight: 'bold' }}>NHA BAN HOA LTD VIETNAM</Text>
             <Text>Address : 45 – No.29 Street, An Khanh Ward, District 2, Ho Chi Minh City , Vietnam</Text>
-            <Text>Hotline for ordering: (Zalo) 0935 17 77 01 - 079 529 7799 / (Whatsapp) (028) 7300 7299</Text>
+            <Text>Hotline for ordering: 0935 17 77 01 - 079 529 7799 (Zalo/WhatsApp) - (028) 7300 7299</Text>
             <Text>Hotline for handling: 078 229 7799 - 079 969 7799</Text>
             <Text>Email : sales1@nhabanhoa.com</Text>
           </View>
